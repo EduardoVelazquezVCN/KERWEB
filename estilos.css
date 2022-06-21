@@ -1,0 +1,546 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  color: rgb(255, 255, 255);
+  font-family: "Poppins", sans-serif;
+
+}
+
+header a {
+  text-decoration: none;
+}
+
+header {
+  padding: 0 20px;
+  background-color: #1d1f1d;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#brand {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+#brand a {
+  color: #ffffff;
+}
+
+ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+ul a {
+  color: #0ef8b2;
+}
+
+ul a:hover {
+  color: #0db0b0d5;
+}
+
+ul li {
+  padding: 5px;
+  margin-left: 10px;
+}
+
+ul li:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+#login,
+#signup {
+  border-radius: 5px;
+  padding: 5px 8px;
+}
+
+#login {
+  border: 1px solid #498afb;
+  background-color: #498afb;
+}
+
+#signup {
+  border: 1px solid #ff3860;
+  background-color: #ff3860;
+}
+
+#signup a {
+  /*color: #ff3860;*/
+  color: #ffffff;
+}
+
+#login a {
+  /*color: #498afb;*/
+  color: #ffffff;
+}
+
+#hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+#hamburger-icon div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+
+}
+
+#TituloO {
+  display: none;
+}
+
+.open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-6px, -8px);
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+
+
+#linea{
+  height: 1px;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 10px;
+  background-color: rgb(24, 222, 179);
+}
+
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 50px;
+  position: absolute;
+
+  /**/
+  background-color: rgb(0, 0, 0);
+  background-image: url('imagenes/fondo 9.png');
+  background-repeat: no-repeat;
+  background-position: 75px 100px;
+  opacity: 1;
+  
+
+
+  /*backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);*/
+
+
+
+  /**/
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 150px;
+  left: 0;
+  height: calc(100vh - 50px);
+  width: 100%;
+
+
+}
+
+
+
+.mobile-menu li {
+  margin-bottom: 10px;
+  border-bottom: 2px solid #023f30;
+}
+
+@media only screen and (max-width: 600px) {
+  header nav {
+    display: none;
+  }
+  #hamburger-icon {
+    display: block;
+  }
+  #TituloO {
+    display: block;
+  }
+}
+
+
+
+
+#form {
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+
+
+  border-radius: 8px;
+  padding: 8px 8px;
+  border: 0.5px solid #000000;
+  background-color: #D4EBE4;
+
+}
+
+#form2, #form3, #form4, #form5, #form6{
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+
+
+  border-radius: 8px;
+  padding: 8px 8px;
+  border: 0.9px solid #00ffc3;
+  background-color: #48d0a7;
+
+}
+
+#titulo-form-centrar {
+  margin-top: 5px;
+  margin-left: 70px;
+  margin-right: 70px;
+
+}
+
+#titulo-form {
+  border: 0.5px solid #00ff9d;
+  background-color: #2A5E6B;
+  color: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+label {
+  color: #2A5E6B;
+  margin-left: 10px;
+}
+
+
+/*#form {
+
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 25px;
+  margin-bottom: 70px;
+}*/
+
+/*Curva titulo*/
+.curved {
+  margin-top: 0px;
+  position: relative;
+  background: #2c3e50;
+  height: 10vh;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+  padding-top: 20px;
+}
+
+/*Campo obligatrorio*/
+#campoO {
+  color: #ff3860;
+  font-size: 20px;
+}
+
+#camposO {
+  color: #ff3860;
+  font-size: 15px;
+
+}
+
+/**/
+
+/*pie de pagina*/
+footer {
+  
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 45px;
+}
+
+/*boton guardar*/
+#botonGuardar {
+  align-items: center;
+}
+
+/*para centrar un div "mood-good"*/
+#botondiv {
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+
+/*Boton guardar*/
+#botonGuardar {
+  background: #2A5E6B;
+  color: rgb(5, 255, 193);
+  border-color: #3d6f5c;
+  padding: 3px 5px    3px 5px;
+  
+}
+
+#botonGuardar:hover{
+ /* background: linear-gradient(190deg, #4da48a 2%, #2A5E6B 100%);*/
+ background: rgb(0, 255, 191);
+  color: rgb(8, 62, 62);
+  border-color: #2a5e6b6f;
+}
+
+#Registro{
+  color: white;
+}
+
+
+#progreso{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+/*OCULTANDO FORMULARIO 2 PARA DESPUES APARECERLO*/
+#Formulario2, #form3, #Formulario3, #form4 , #Formulario4 ,#form5, #Formulario5, #form6, #botonGuardarFinal, #mostrarLetrero{
+  display: none;
+}
+
+
+/* ESTILOS FORMULARIO OFICIOS     ------ INICIO------*/ 
+/*id=referencia*/
+#referencias{
+  border:1px solid #000000;
+  -moz-border-radius: 27px;
+  -webkit-border-radius:27px;
+  padding: 5px;
+  background-color: #2c3e50;
+  margin-top: 35px;
+  margin-bottom: 35px;
+
+
+}
+
+#textReferencias{
+  font-size: 25px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+/*Estilos boton cargar archivo*/
+.css-button {
+	font-family: Arial;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px #3866a3 solid;
+	background: linear-gradient(180deg, #2a5e6b 5%, #678199 100%);
+	text-shadow: 1px 1px 1px #528ecc;
+	box-shadow: inset 36px 0px 2px 0px #46ddb4bf;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+    text-decoration: none;
+   
+}
+.css-button:hover {
+	background: linear-gradient(180deg, #00eaff64 5%, #088757 100%);
+    color: rgb(255, 255, 255);
+}
+.css-button-icon {
+	padding: 10px 10px;
+	border-right: 1px solid rgba(255, 255, 255, 0.16);
+	box-shadow: rgba(0, 0, 0, 0.14) -1px 0px 0px inset;
+}
+.css-button-icon svg {
+	vertical-align: middle;
+	position: relative;
+  color: #000000;
+}
+
+.css-button-icon svg:hover {
+	
+  color: #00ffcc;
+}
+.css-button-text {
+	padding: 10px 18px;
+}
+/*                            */
+
+
+#alineador1{
+    margin-right: 60px;
+}
+
+#alineador2{
+    margin-right: 10px;
+}
+
+#alineador3{
+    margin-right: 15px;
+}
+
+/*Boton guardar*/
+#botonGuardar {
+  background: #2A5E6B;
+  color: rgb(5, 255, 193);
+  border-color: #3d6f5c;
+  
+}
+
+#botonGuardar:hover{
+  background: linear-gradient(190deg, #4da48a 2%, #2A5E6B 100%);
+  color: rgb(32, 230, 174);
+  border-color: #2a5e6b6f;
+}
+
+#Registro{
+  color: white;
+}
+/* ESTILOS FORMULARIO OFICIOS     ------ FIN------*/ 
+
+
+
+/* ESTILOS FORMULARIO DOCUMETNOS ESCANEADOS     ------ INICIO------*/ 
+/*Estilos boton cargar archivo*/
+.css-button {
+	font-family: Arial;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px #3866a3 solid;
+	background: linear-gradient(180deg, #2a5e6b 5%, #678199 100%);
+	text-shadow: 1px 1px 1px #528ecc;
+	box-shadow: inset 36px 0px 2px 0px #46ddb4bf;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+    text-decoration: none;
+   
+}
+.css-button:hover {
+	background: linear-gradient(180deg, #00eaff64 5%, #088757 100%);
+    color: rgb(255, 255, 255);
+}
+.css-button-icon {
+	padding: 10px 10px;
+	border-right: 1px solid rgba(255, 255, 255, 0.16);
+	box-shadow: rgba(0, 0, 0, 0.14) -1px 0px 0px inset;
+}
+.css-button-icon svg {
+	vertical-align: middle;
+	position: relative;
+  color: #000000;
+}
+
+.css-button-icon svg:hover {
+	
+  color: #00ffcc;
+}
+.css-button-text {
+	padding: 10px 18px;
+}
+/*                            */
+
+
+#alineador11{
+    margin-right: 300px;
+}
+
+#alineador22{
+    margin-right: 311px;
+}
+
+#alineador33{
+    margin-right: 282px;
+}
+#alineador4{
+    margin-right: 119px;
+}
+
+#alineador5{
+    margin-right: 180px;
+}
+
+#alineador6{
+    margin-right: 69px;
+}
+#alineador7{
+    margin-right: 235px;
+}
+
+#alineador8{
+    margin-right: 94px;
+}
+#alineador9{
+    margin-right: 99px;
+}
+
+#alineador10{
+    margin-right: 131px;
+}
+
+/*Boton guardar*/
+#botonGuardar {
+  background: #2A5E6B;
+  color: rgb(5, 255, 193);
+  border-color: #3d6f5c;
+  
+}
+
+#botonGuardar:hover{
+  background: linear-gradient(190deg, #4da48a 2%, #2A5E6B 100%);
+  color: rgb(32, 230, 174);
+  border-color: #2a5e6b6f;
+}
+
+#Registro{
+  color: white;
+}
+
+/* ESTILOS FORMULARIO DOCUMETNOS ESCANEADOS     ------ FIN------*/ 
+
+
+#botonGuardarFinal{
+  background: #2A5E6B;
+  color: rgb(5, 255, 193);
+  border-color: #3d6f5c;
+}
+#botonGuardarFinal:hover{
+  background: linear-gradient(190deg, #4da48a 2%, #2A5E6B 100%);
+  color: rgb(32, 230, 174);
+  border-color: #2a5e6b6f;
+}
