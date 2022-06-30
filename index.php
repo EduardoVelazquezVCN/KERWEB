@@ -12,12 +12,42 @@
 </head>
 
 <body>
+<?php
+    if(isset($_POST{'enviar'})){
+        if(empty($_POST['usuario']) || empty($_POST['password']) ){
+           echo "<script languaje='JavaScript'>
+           alert('El usuario o el password estan vacios');
+           location.assign('index.php');
+           </script>";
+        }else{
+            include ('conexionDB.php');
+            $usuario =$_POST['usuario'];
+            $password =$_POST['password'];
+            $sql="select * from registrokerklylogin where usuario='" .$usuario."' and password='".$password."'";  
+            $resultado=mysqli_query($con, $sql);
 
+            if($fila=mysqli_fetch_assoc($resultado)){
+                echo "<script languaje='JavaScript'>
+                alert('Bienvenido');
+                location.assign('RegistroKERKLY.html');
+                </script>";
+            }else{
+                echo "<script languaje='JavaScript'>
+                alert('Error, revisa tus datos');
+                location.assign('index.php');
+                </script>";
+            }
+        }
+        
+    }else{ 
+
+  
+?>
 
     <div class="container">
         <div class="row justify-content-center pt-1 mt-4 m-1">
             <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
-                <form action="" id="signin-form">
+                <form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="signin-form">
                     <div class="icono">
                         <img src="img/Frame 102.png" width="90" height="130">
                     </div>
@@ -25,38 +55,23 @@
                         <h1 class="text-Light">INICIAR SESIÓN</h1>
                     </div>
                     <div class="form-group mx-sm-4 pt-1">
-                        <input type="text" class="form-control" id="singin-email" placeholder="Ingrese su correo"
+                        <input type="text" class="form-control" name="usuario" id="singin-email" placeholder="Ingrese su correo"
                             required>
                     </div>
                     <div class="form-group mx-sm-4 pb-1">
-                        <input type="password" class="form-control" id="signin-contraseña" placeholder="Ingrese su contraseña" required>
+                        <input type="password" class="form-control" name="password" id="signin-contraseña" placeholder="Ingrese su contraseña" required>
                     </div>
                     <div class="form-group mx-sm-4 pb-1">
-                        <input class="btn btn-block ingresar2" value="INGRESAR" type="submit">
+                        <input class="btn btn-block ingresar2" name="enviar" value="INGRESAR" type="submit">
                     </div>
-                  
-
-                    
-                   
-                    
-                    <!--<div class="form-group mx-sm-4 text-right">
-                        <span><a class="olvide" href="#">Olvide mi contraseña</a></span>
-                    </div>-->
                 </form>
             </div>
         </div>
     </div>
 
-    <!--ACCESO A CONTENIDO CON INICIO DE SESION -->
-    <div class="container p-4">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <ul class="list-group post" id="post">
-                </ul>
-            </div>
-        </div>
-    </div>
-
+<?php
+  }
+?>
 
    
 
