@@ -1,0 +1,9 @@
+#resultado {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+}
+#resultado.ok {
+    background-color: #2a5e6b;
+}

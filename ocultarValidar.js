@@ -287,7 +287,7 @@ function check2() {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 /* validacion info oficios */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-function validarOficios() {
+/*function validarOficios() {
   if (NoOficio.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
@@ -360,7 +360,7 @@ function validarOficios() {
     })
     return false;
   }
-}
+}*/
 /*block el formulario siguiente*/
 function ocultarFommulario3() {
   document.getElementById('Formulario1').style.display = 'none';
@@ -373,9 +373,10 @@ function ocultarFommulario3() {
   document.getElementById('form4').style.display = 'none';
   document.getElementById('form5').style.display = 'block';
   document.getElementById('form6').style.display = 'none';
+  
 }
 
-function check3() {
+/*function check3() {
   if (validarOficios() == false) {
     validarOficios();
     console.log('estoy aqui 3');
@@ -383,7 +384,15 @@ function check3() {
     ocultarFommulario3();
     console.log('estoy aca 3');
   }
+}*/
+
+function check3(){
+  
+    ocultarFommulario3();
+    console.log("estoy aqui w");
+  
 }
+
 
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
@@ -600,3 +609,6 @@ function check5() {
 
   }
 }
+
+
+/*http://localhost//keklywebv2/RegistroKERKLY.html*/ 

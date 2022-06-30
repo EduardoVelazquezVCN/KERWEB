@@ -48,12 +48,17 @@ class ClaseKerkly {
            header('location: usuarioExistente.html');
        }else{
           echo $Estado;
-          $insertar = "INSERT INTO kerkly (Nombre,Apellido_Paterno,Apellido_Materno,Curp,FechaDeNacimiento,Genero,Nacionalidad,EstadoCivil,correo_electronico,TelefonoCasa,Telefono, Estado, Municipio,Localidad,codigoP,Colonia,calle,NoExt,NoInt)
+          $sqlInsertDireccion = "INSERT INTO direccion (Estado, Ciudad, Codigo_Postal, Colonia, Calle, No_Interior, No_Exterior) VALUES('$Estado','$Localidad', '$codigoP','$Colonia','$calle','$NoInt', '$NoExt')";
+          $ejecutado = mysqli_query($con, $sqlInsertDireccion);
       
-        VALUES ('$Nombre','$ApellidoP','$ApellidoM','$Curp','$FechaN','$genero','$Nacionalidad','$EstadoC','$email','$Telefonofijo','$TelefonoMovil','$Estado')";
+          if ($ejecutado == 1) {
+              $idDireccion = mysqli_insert_id($con);
+          }
+          $insertar = "INSERT INTO kerkly (Nombre,Apellido_Paterno,Apellido_Materno,Curp,FechaDeNacimiento,Genero,Nacionalidad,EstadoCivil,correo_electronico,TelefonoCasa,Telefono,Municipio,direccionId)
+        VALUES ('$Nombre','$ApellidoP','$ApellidoM','$Curp','$FechaN','$genero','$Nacionalidad','$EstadoC','$email','$Telefonofijo','$TelefonoMovil','$Municipio','$idDireccion')";
         
         if(mysqli_query($con,$insertar)){
-            /*header('Location: InfoDom.html');*/
+            //header('Location: InfoDom.html');
             echo "<script>alert('Usuario insertado exitosamente');</script>";
             //echo 'listo';
         }else{

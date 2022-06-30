@@ -1,0 +1,64 @@
+body{
+    background-image: url(img/fondo4.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.text-Light{
+    color: seashell;
+}
+
+.icono{
+    /*margin: auto;
+    display: block;
+    padding-left: 95px;
+    position: static;*/
+    display: flex;
+    justify-content: center;
+}
+.formulario{
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+    color: white;
+}
+
+.form-control{
+    background: #e1ffdc;
+    border-style: none;
+    transition: 0.2s ease-in;
+}
+.ingresar{
+    background:#2A5E6B;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700!important;
+    color: white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+    transition: 0.2s ease-in;
+}
+
+.ingresar:hover{
+    background: #70F3CC;
+}
+
+.olvide{
+    color: white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    font-size: 15px;
+    font-weight: bold; 
+}
+.olvide:hover{
+    color: turquoise;
+    transition: 0.2s ease-in;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    cursor: pointer;
+ 
+}
+
+

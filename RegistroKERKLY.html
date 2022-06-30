@@ -73,24 +73,29 @@
             <nav id="form">
 
                 <!-- Text input -->
+                <script src="validarSoloTexto.js"></script>
                 <div class="form-outline mb-3">
-                    <input type="text" id="nombre" name="Nombre" class="form-control" placeholder="---" />
+                    <input type="text" id="nombre" name="Nombre" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Nombre(s)</label> <label for="form1" id="campoO">*</label>
+                    <pre id="resultadoTexto"></pre>
                 </div>
                 <div class="form-outline mb-3">
-                    <input type="text" id="APaterno" name="ApellidoP" class="form-control" placeholder="---" />
+                    <input type="text" id="APaterno" name="ApellidoP" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Apellido Paterno</label> <label for="form1"
                         id="campoO">*</label>
                 </div>
                 <div class="form-outline mb-3">
-                    <input type="text" id="AMaterno" name="ApellidoM" class="form-control" placeholder="---" />
+                    <input type="text" id="AMaterno" name="ApellidoM" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Apellido Materno</label> <label for="form1"
                         id="campoO">*</label>
                 </div>
                 <!-- Text input -->
+                <script src="limitacionCurp.js"></script>
+                <link rel="stylesheet" href="estiloLimitacionDatos.css">
                 <div class="form-outline mb-3">
-                    <input type="text" id="Curp" name="Curp" class="form-control" placeholder="---" />
+                    <input type="text" id="Curp" name="Curp" oninput="validarInput(this)" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">CURP</label> <label for="form1" id="campoO">*</label>
+                    <pre id="resultado"></pre>
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-3">
@@ -109,7 +114,7 @@
                 </div>
                 <!-- Message input -->
                 <div class="form-outline mb-3">
-                    <input type="text" name="Nacionalidad" id="Nacionalidad" class="form-control" placeholder="---" />
+                    <input type="text" name="Nacionalidad" id="Nacionalidad"  autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Nacionalidad</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <!-- Number input -->
@@ -122,21 +127,23 @@
                     <label class="form-label" for="form1">Estado Civil</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <!-- Email input -->
+                <script src="validarEmail.js"></script>
                 <div class="form-outline mb-3">
-                    <input type="email" name="email" id="CElectronico" class="form-control"
+                    <input type="text" name="email" id="CElectronico" class="form-control"
                         placeholder="EmpleadoId@kerkly.com" />
                     <label class="form-label" for="form1">Correo Electronico</label> <label for="form1"
                         id="campoO">*</label>
+                        <span id="emailOK"></span>
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-3">
-                    <input type="number" name="Telefonofijo" id="Tfijo" class="form-control"
+                    <input type="number" name="Telefonofijo" id="Tfijo"  maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control"
                         placeholder="747-47-1-68-92" />
                     <label class="form-label" for="form1">Teléfono fijo</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-3">
-                    <input type="number" name="TelefonoMovil" id="Tmovil" class="form-control"
+                    <input type="number" name="TelefonoMovil" id="Tmovil"  maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control"
                         placeholder="74-71-25-85-96" />
                     <label class="form-label" for="form1">Teléfono movil</label> <label for="form1"
                         id="campoO">*</label>
@@ -273,7 +280,7 @@
                         id="campoO">*</label>
                     <span id="alineador3"></span>
                     <a class="css-button">
-                        <span class="css-button-icon"><svg width="16" height="16" viewBox="2 2 16 16"
+                        <span class="css-button-icon"><svg width="21" height="16" viewBox="2 2 16 16"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M6.887 8.2l-.964-.165A2.5 2.5 0 105.5 13H8v1H5.5a3.5 3.5 0 11.59-6.95 5.002 5.002 0 119.804 1.98A2.501 2.501 0 0115.5 14H12v-1h3.5a1.5 1.5 0 00.237-2.982L14.7 9.854l.216-1.028a4 4 0 10-7.843-1.587l-.185.96z" />
@@ -283,7 +290,9 @@
                                 <path fill-rule="evenodd" d="M10 8a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 8z"
                                     clip-rule="evenodd" />
                             </svg></span>
-                        <span id="refTrabajo1" name="RefTrabajo1" class="css-button-text">Cargar Archivo</span>
+                            <!-- Text input -->
+                        <!--<span id="refTrabajo1" name="RefTrabajo1" class="css-button-text">Cargar Archivo</span>-->
+                        <input id="botonRefTrabajo" type="file" name="file">
                     </a>
                 </div>
 
@@ -351,6 +360,7 @@
                 <!-- <input id="botonGuardar" type="submit" value="Siguiente" class="btn btn-primary btn-block mb-3">-->
                 <!--<button onclick= "location.href='prueba.html'">HOLIWIS</button>-->
                 <button type="button" id="botonGuardar" onclick="check3();">Siguiente</button>
+                
             </div>
         </nav>
 
