@@ -72,8 +72,7 @@ if (isset($_POST['NoInt'])) {
 
 $Registrar = new ClaseKerkly ();
 
-$Registrar->RegistrarKerkly1($Kerklys);
-
+$Registrar->RegistrarKerkly1($Kerklys, "ReferenciaTrabajo1", "ReferenciaTrabajo2","ReferenciaFamiliar" ,"fotoKerkly" , "INEKerkly" , "curpKERKLY" , "comprobanteDomicilio" , "certificadoMedico" ,"cartaAntePenales","regSatKERKLY" , "comprobanteVacuna" , "fotoDomicilioPart" ,"fotoLocal");
 
 /*$Registrar2 = new ClaseKerkly2 ();
 

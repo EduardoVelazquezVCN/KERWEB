@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css" />
     <link rel="stylesheet" href="estilosFoot.css">
     <title>KERKLY</title>
@@ -66,7 +65,7 @@
         </section>
     </div>
 
-    <form action="Registrar.php" method="POST">
+    <form data-toggle="validator" action="Registrar.php" method="POST" enctype="multipart/form-data">
 
         <!-- FORMULARIO 1  -->
         <fieldset id="Formulario1">
@@ -81,13 +80,11 @@
                 </div>
                 <div class="form-outline mb-3">
                     <input type="text" id="APaterno" name="ApellidoP" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Apellido Paterno</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Apellido Paterno</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <div class="form-outline mb-3">
                     <input type="text" id="AMaterno" name="ApellidoM" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Apellido Materno</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Apellido Materno</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <!-- Text input -->
                 <script src="limitacionCurp.js"></script>
@@ -100,8 +97,7 @@
                 <!-- Email input -->
                 <div class="form-outline mb-3">
                     <input type="date" id="FechaN" name="FechaN" class="form-control" />
-                    <label class="form-label" for="form1">Fecha de Nacimiento</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Fecha de Nacimiento</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <!-- Number input -->
                 <div class="form-outline mb-3">
@@ -114,7 +110,7 @@
                 </div>
                 <!-- Message input -->
                 <div class="form-outline mb-3">
-                    <input type="text" name="Nacionalidad" id="Nacionalidad"  autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
+                    <input type="text" name="Nacionalidad" id="Nacionalidad" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Nacionalidad</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <!-- Number input -->
@@ -129,24 +125,19 @@
                 <!-- Email input -->
                 <script src="validarEmail.js"></script>
                 <div class="form-outline mb-3">
-                    <input type="text" name="email" id="CElectronico" class="form-control"
-                        placeholder="EmpleadoId@kerkly.com" />
-                    <label class="form-label" for="form1">Correo Electronico</label> <label for="form1"
-                        id="campoO">*</label>
-                        <span id="emailOK"></span>
+                    <input type="text" name="email" id="CElectronico" class="form-control" placeholder="EmpleadoId@kerkly.com" />
+                    <label class="form-label" for="form1">Correo Electronico</label> <label for="form1" id="campoO">*</label>
+                    <span id="emailOK"></span>
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-3">
-                    <input type="number" name="Telefonofijo" id="Tfijo"  maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control"
-                        placeholder="747-47-1-68-92" />
+                    <input type="number" name="Telefonofijo" id="Tfijo" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" placeholder="747-47-1-68-92" />
                     <label class="form-label" for="form1">Teléfono fijo</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-3">
-                    <input type="number" name="TelefonoMovil" id="Tmovil"  maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control"
-                        placeholder="74-71-25-85-96" />
-                    <label class="form-label" for="form1">Teléfono movil</label> <label for="form1"
-                        id="campoO">*</label>
+                    <input type="number" name="TelefonoMovil" id="Tmovil" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" placeholder="74-71-25-85-96" />
+                    <label class="form-label" for="form1">Teléfono movil</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <div>
                     <h1 id="camposO">* Campos obligatorios</h1>
@@ -213,14 +204,12 @@
                 <!-- Text input -->
                 <div class="form-outline mb-3">
                     <input type="text" id="NoExt" name="NoExt" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Número exterior</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Número exterior</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <!-- Text input -->
                 <div class="form-outline mb-3">
                     <input type="text" id="NoInt" name="NoInt" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Número interior</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Número interior</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <div>
                     <h1 id="camposO">* Campos obligatorios</h1>
@@ -256,8 +245,7 @@
                 <!-- Text input -->
                 <div class="form-outline mb-3">
                     <input type="text" id="NoOficio" name="NoOficio" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Numero de oficio</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Numero de oficio</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <div class="form-outline mb-3">
                     <input type="text" id="Oficio" name="oficio" class="form-control" placeholder="---" />
@@ -267,8 +255,7 @@
 
                 <div class="form-outline mb-3">
                     <input type="text" id="telNegocio" name="TelNegocio" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Telefono de negocio</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Telefono de negocio</label> <label for="form1" id="campoO">*</label>
                 </div>
 
                 <div id="referencias">
@@ -276,8 +263,7 @@
                 </div>
 
                 <div class="form-outline mb-3">
-                    <label class="form-label" for="form1">Referencias de trabajo (1): </label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Referencias de trabajo (1): </label> <label for="form1" id="campoO">*</label>
                     <span id="alineador3"></span>
                     <a class="css-button">
                         <span class="css-button-icon"><svg width="21" height="16" viewBox="2 2 16 16"
@@ -290,15 +276,14 @@
                                 <path fill-rule="evenodd" d="M10 8a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 8z"
                                     clip-rule="evenodd" />
                             </svg></span>
-                            <!-- Text input -->
+                        <!-- Text input -->
                         <!--<span id="refTrabajo1" name="RefTrabajo1" class="css-button-text">Cargar Archivo</span>-->
-                        <input id="botonRefTrabajo" type="file" name="file">
+                        <input type="file" name="ReferenciaTrabajo1">
                     </a>
                 </div>
 
                 <div class="form-outline mb-3">
-                    <label class="form-label" for="form1">Referencias de trabajo (2):</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Referencias de trabajo (2):</label> <label for="form1" id="campoO">*</label>
                     <span id="alineador2"></span>
                     <a class="css-button">
                         <span class="css-button-icon"><svg width="16" height="16" viewBox="2 2 16 16"
@@ -311,14 +296,13 @@
                                 <path fill-rule="evenodd" d="M10 8a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 8z"
                                     clip-rule="evenodd" />
                             </svg></span>
-                        <span id="refTrabajo2" name="RefTrabajo2" class="css-button-text">Cargar Archivo</span>
+                            <input type="file" name="ReferenciaTrabajo2">
                     </a>
 
                 </div>
 
                 <div class="form-outline mb-3">
-                    <label class="form-label" for="form1">Referencias familiar:</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Referencias familiar:</label> <label for="form1" id="campoO">*</label>
 
                     <span id="alineador1"></span>
                     <a class="css-button">
@@ -332,7 +316,7 @@
                                 <path fill-rule="evenodd" d="M10 8a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 8z"
                                     clip-rule="evenodd" />
                             </svg></span>
-                        <span id="refFamiliar" name="RefFamiliar" class="css-button-text">Cargar Archivo</span>
+                            <input type="file" name="ReferenciaFamiliar">
                     </a>
 
                 </div>
@@ -360,7 +344,7 @@
                 <!-- <input id="botonGuardar" type="submit" value="Siguiente" class="btn btn-primary btn-block mb-3">-->
                 <!--<button onclick= "location.href='prueba.html'">HOLIWIS</button>-->
                 <button type="button" id="botonGuardar" onclick="check3();">Siguiente</button>
-                
+
             </div>
         </nav>
 
@@ -385,6 +369,7 @@
                                     clip-rule="evenodd" />
                             </svg></span>
                         <span id="foto" class="css-button-text">Cargar Archivo</span>
+                        <input type="file" name="fotoKerkly">
                     </a>
                 </div>
 
@@ -403,6 +388,7 @@
                                     clip-rule="evenodd" />
                             </svg></span>
                         <span id="ine" class="css-button-text">Cargar Archivo</span>
+                        <input type="file" name="INEKerkly">
                     </a>
 
                 </div>
@@ -423,13 +409,13 @@
                                     clip-rule="evenodd" />
                             </svg></span>
                         <span id="curp" class="css-button-text">Cargar Archivo</span>
+                        <input type="file" name="curpKERKLY">
                     </a>
 
                 </div>
 
                 <div class="form-outline mb-3">
-                    <label class="form-label" for="form1">Comprobante de domicilio:</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Comprobante de domicilio:</label> <label for="form1" id="campoO">*</label>
 
                     <span id="alineador4"></span>
                     <a class="css-button">
@@ -444,12 +430,12 @@
                                     clip-rule="evenodd" />
                             </svg></span>
                         <span id="comprobanteDomicilio" class="css-button-text">Cargar Archivo</span>
+                        <input type="file" name="comprobanteDomicilio">
                     </a>
                 </div>
 
                 <div class="form-outline mb-3">
-                    <label class="form-label" for="form1">Certificado medico:</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Certificado medico:</label> <label for="form1" id="campoO">*</label>
 
                     <span id="alineador5"></span>
                     <a class="css-button">
@@ -464,12 +450,12 @@
                                     clip-rule="evenodd" />
                             </svg></span>
                         <span id="certificadoMedico" class="css-button-text">Cargar Archivo</span>
+                        <input type="file" name="certificadoMedico">
                     </a>
                 </div>
 
                 <div class="form-outline mb-3">
-                    <label class="form-label" for="form1">Carta de antecendentes penales:</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Carta de antecendentes penales:</label> <label for="form1" id="campoO">*</label>
 
                     <span id="alineador6"></span>
                     <a class="css-button">
@@ -484,6 +470,7 @@
                                     clip-rule="evenodd" />
                             </svg></span>
                         <span id="antecedentesPenales" class="css-button-text">Cargar Archivo</span>
+                        <input type="file" name="cartaAntePenales">
                     </a>
                 </div>
 
@@ -502,13 +489,13 @@
                                 <path fill-rule="evenodd" d="M10 8a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 8z"
                                     clip-rule="evenodd" />
                             </svg></span>
-                        <span id="regSat" class="css-button-text">Cargar Archivo</span>
+                        <span id="regSat" class="css-button-text">Cargar Archivo</span> 
+                        <input type="file" name="regSatKERKLY">
                     </a>
                 </div>
 
                 <div class="form-outline mb-3">
-                    <label class="form-label" for="form1">Comprobante de vacunación:</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Comprobante de vacunación:</label> <label for="form1" id="campoO">*</label>
 
                     <span id="alineador8"></span>
                     <a class="css-button">
@@ -523,12 +510,12 @@
                                     clip-rule="evenodd" />
                             </svg></span>
                         <span id="comprobanteVacunacion" class="css-button-text">Cargar Archivo</span>
+                        <input type="file" name="comprobanteVacuna">
                     </a>
                 </div>
 
                 <div class="form-outline mb-3">
-                    <label class="form-label" for="form1">Fotos del domicilio particular:</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Fotos del domicilio particular:</label> <label for="form1" id="campoO">*</label>
 
                     <span id="alineador9"></span>
                     <a class="css-button">
@@ -543,12 +530,12 @@
                                     clip-rule="evenodd" />
                             </svg></span>
                         <span id="fotoDomicilio" class="css-button-text">Cargar Archivo</span>
+                        <input type="file" name="fotoDomicilioPart">
                     </a>
                 </div>
 
                 <div class="form-outline mb-3">
-                    <label class="form-label" for="form1">Fotos del negocio o local:</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Fotos del negocio o local:</label> <label for="form1" id="campoO">*</label>
 
                     <span id="alineador10"></span>
                     <a class="css-button">
@@ -563,6 +550,7 @@
                                     clip-rule="evenodd" />
                             </svg></span>
                         <span id="fotoNegocio" class="css-button-text">Cargar Archivo</span>
+                        <input type="file" name="fotoLocal">
                     </a>
                 </div>
 
@@ -597,8 +585,7 @@
                 <!-- Text input -->
                 <div class="form-outline mb-3">
                     <input type="password" id="contrasena" class="form-control" placeholder="Password" />
-                    <label class="form-label" for="form1">Crear contraseña</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Crear contraseña</label> <label for="form1" id="campoO">*</label>
                 </div>
 
 
@@ -606,8 +593,7 @@
                 <!-- Icons by https://heroicons.com/ -->
                 <div class="form-outline mb-3">
                     <input type="password" id="contrasenaConfirm" class="form-control" placeholder="Password" data-lpignore="true">
-                    <label class="form-label" for="form1">Confirmar contraseña</label> <label for="form1"
-                        id="campoO">*</label>
+                    <label class="form-label" for="form1">Confirmar contraseña</label> <label for="form1" id="campoO">*</label>
                     <!--<svg xmlns="http://www.w3.org/2000/svg" class="input-icon password" viewBox="0 0 20 20"
                     fill="currentColor">
                     <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
@@ -644,7 +630,7 @@
             <br>
             <input type="submit" value="Guardar" id="botonGuardarFinal">
         </div>
-        
+
     </form>
 
 
@@ -655,8 +641,7 @@
 
     <!--Efecto pie de pagina-->
     <footer>
-        <svg class="editorial" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28 " preserveAspectRatio="none">
+        <svg class="editorial" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
             <defs>
                 <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
             </defs>
