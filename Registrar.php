@@ -67,6 +67,10 @@ if (isset($_POST['NoExt'])) {
 if (isset($_POST['NoInt'])) {
     $Kerklys['NoInt'] = $_POST['NoInt'];
 }
+if (isset($_POST['telNegocio'])) {
+    $Kerklys['telNegocio'] = $_POST['telNegocio'];
+}
+
 
 
 

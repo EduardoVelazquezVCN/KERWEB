@@ -1,7 +1,7 @@
 <?php
    
     $servidor= "localhost";
-    $NombreDB = "kerklyapp2";
+    $NombreDB = "kerklyapp3";
     $UsaurioDB = "root";
     $ContrasenaDB = "kerkly1234";
     $con = mysqli_connect($servidor, $UsaurioDB, $ContrasenaDB,$NombreDB);

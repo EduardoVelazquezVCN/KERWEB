@@ -30,6 +30,8 @@ class ClaseKerkly {
         $calle = $kerklys['calle'];
         $NoExt = $kerklys['NoExt'];
         $NoInt = $kerklys['NoInt'];
+        $telNegocio = $kerklys['telNegocio'];
+        $oficio="";
         //seccion 3
        // $ReferenciaTrabajo1 =$kerklys['ReferenciaTrabajo1'];
      
@@ -39,7 +41,16 @@ class ClaseKerkly {
         for ($i=0;$i<count($selectEstadoCivil);$i++) { 
             $EstadoC = $selectEstadoCivil[$i]; 
         } 
-        
+
+        // INICIO select oficios -- obtencion de datos de bd 
+        //$consultaOficios="SELECT * FROM kerkly where oficios";
+        //$ejecutar=mysqli_query($con,$consultaOficios) or die(mysqli_error($con));
+
+         // llenando el select
+         //foreach ($ejecutar as $opciones):
+
+         //endforeach
+        // FIN select oficios -- obtencion de datos de bd
         $Consulta = "SELECT * FROM kerkly WHERE Curp = '$Curp'";
         $checkCurp = mysqli_fetch_array(mysqli_query($con, $Consulta));
        if(isset($checkCurp)){
@@ -412,14 +423,14 @@ class ClaseKerkly {
 
             if(move_uploaded_file($_FILES[$tipo_imagen]["tmp_name"],$add) && move_uploaded_file($_FILES[$tipo_imagen2]["tmp_name"],$add2) && move_uploaded_file($_FILES[$tipo_imagen3]["tmp_name"],$add3) && move_uploaded_file($_FILES[$tipo_imagen4]["tmp_name"],$add4) && move_uploaded_file($_FILES[$tipo_imagen5]["tmp_name"],$add5) && move_uploaded_file($_FILES[$tipo_imagen6]["tmp_name"],$add6) && move_uploaded_file($_FILES[$tipo_imagen7]["tmp_name"],$add7) && move_uploaded_file($_FILES[$tipo_imagen8]["tmp_name"],$add8)  && move_uploaded_file($_FILES[$tipo_imagen9]["tmp_name"],$add9) && move_uploaded_file($_FILES[$tipo_imagen10]["tmp_name"],$add10) && move_uploaded_file($_FILES[$tipo_imagen11]["tmp_name"],$add11) && move_uploaded_file($_FILES[$tipo_imagen12]["tmp_name"],$add12) && move_uploaded_file($_FILES[$tipo_imagen13]["tmp_name"],$add13)){
                 echo 'entrp';
-                $insertar = "INSERT INTO kerkly (Nombre,Apellido_Paterno,Apellido_Materno,Curp,FechaDeNacimiento,Genero,Nacionalidad,EstadoCivil,correo_electronico,TelefonoCasa,Telefono,Municipio,direccionId,Referencia1,Referencia2,ReferenciaFam,fotoKEKRLY,ineKERKLY,curpKERKLY,comprobanteDomicilio,certificadoMedico,cartaAntePenales,regSatKERKLY,comprobanteVacuna,fotoDomicilioPart,fotoLocal)
-                VALUES ('$Nombre','$ApellidoP','$ApellidoM','$Curp','$FechaN','$genero','$Nacionalidad','$EstadoC','$email','$Telefonofijo','$TelefonoMovil','$Municipio','$idDireccion','$db_url_img','$db_url_img2','$db_url_img3','$db_url_img4','$db_url_img5','$db_url_img6','$db_url_img7','$db_url_img8','$db_url_img9','$db_url_img10','$db_url_img11','$db_url_img12','$db_url_img13')";
+                $insertar = "INSERT INTO kerkly (Nombre,Apellido_Paterno,Apellido_Materno,Curp,FechaDeNacimiento,Genero,Nacionalidad,EstadoCivil,correo_electronico,TelefonoCasa,Telefono,Municipio,direccionId,telNegocio,Referencia1,Referencia2,ReferenciaFam,fotoKEKRLY,ineKERKLY,curpKERKLY,comprobanteDomicilio,certificadoMedico,cartaAntePenales,regSatKERKLY,comprobanteVacuna,fotoDomicilioPart,fotoLocal)
+                VALUES ('$Nombre','$ApellidoP','$ApellidoM','$Curp','$FechaN','$genero','$Nacionalidad','$EstadoC','$email','$Telefonofijo','$TelefonoMovil','$Municipio','$idDireccion','$telNegocio','$db_url_img','$db_url_img2','$db_url_img3','$db_url_img4','$db_url_img5','$db_url_img6','$db_url_img7','$db_url_img8','$db_url_img9','$db_url_img10','$db_url_img11','$db_url_img12','$db_url_img13')";
                 
                 if(mysqli_query($con,$insertar)){
                     //header('Location: InfoDom.html');
                     echo "<script>
                         alert('Usuario insertado exitosamente');
-                        location.assign('RegistroKERKLY.html');
+                        location.assign('RegistroKERKLY.php');
                         </script>";
                    
 

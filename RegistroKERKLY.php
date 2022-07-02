@@ -247,14 +247,30 @@
                     <input type="text" id="NoOficio" name="NoOficio" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Numero de oficio</label> <label for="form1" id="campoO">*</label>
                 </div>
-                <div class="form-outline mb-3">
+                <!--<div class="form-outline mb-3">
                     <input type="text" id="Oficio" name="oficio" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Oficio</label> <label for="form1" id="campoO">*</label>
+                </div>-->
+
+                <div id="selectOficios" class="form-outline mb-3">
+                    <label> 
+                        <select name="selectOficios[]" id="oficios" class="form-control">
+                            <?php 
+                                include_once "conexionDB.php";
+                                $consultaOficios="SELECT oficios.nombreO from oficios";
+                                $ejecutar=mysqli_query($con,$consultaOficios) or die(mysqli_error($con));
+                            ?>
+                            <?php foreach ($ejecutar as $opciones):?>
+                                <option value="<?php echo $opciones['nombreO']?>"><?php echo $opciones['nombreO']?></option>
+                            <?php endforeach?>
+                        </select>
+                         Seleccione oficio: 
+                    </label><label for="form1" id="campoO">*</label>
                 </div>
 
 
                 <div class="form-outline mb-3">
-                    <input type="text" id="telNegocio" name="TelNegocio" class="form-control" placeholder="---" />
+                    <input type="number" id="telNegocio" name="telNegocio" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" placeholder="74-71-25-85-96" />
                     <label class="form-label" for="form1">Telefono de negocio</label> <label for="form1" id="campoO">*</label>
                 </div>
 

@@ -29,7 +29,7 @@
             if($fila=mysqli_fetch_assoc($resultado)){
                 echo "<script languaje='JavaScript'>
                 alert('Bienvenido');
-                location.assign('RegistroKERKLY.html');
+                location.assign('RegistroKERKLY.php');
                 </script>";
             }else{
                 echo "<script languaje='JavaScript'>
