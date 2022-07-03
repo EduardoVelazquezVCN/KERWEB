@@ -30,6 +30,10 @@ if (isset($_POST['Nacionalidad'])) {
 
 
     $Kerklys['selectEstadoCivil'] = $_POST['selectEstadoCivil'];
+    $Kerklys['selectOficios'] = $_POST['selectOficios'];
+    
+
+    
 
 if (isset($_POST['email'])) {
     $Kerklys['email'] = $_POST['email'];

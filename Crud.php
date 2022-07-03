@@ -31,6 +31,7 @@ class ClaseKerkly {
         $NoExt = $kerklys['NoExt'];
         $NoInt = $kerklys['NoInt'];
         $telNegocio = $kerklys['telNegocio'];
+        $selectOficios  = $kerklys['selectOficios'];
         $oficio="";
         //$Contrasena1 = $Kerklys['Contrasena'];
         //seccion 3
@@ -41,6 +42,9 @@ class ClaseKerkly {
         } 
         for ($i=0;$i<count($selectEstadoCivil);$i++) { 
             $EstadoC = $selectEstadoCivil[$i]; 
+        } 
+        for ($i=0;$i<count($selectOficios);$i++) { 
+            $oficio = $selectOficios[$i]; 
         } 
 
         // INICIO select oficios -- obtencion de datos de bd 
@@ -54,7 +58,7 @@ class ClaseKerkly {
         // FIN select oficios -- obtencion de datos de b
 
     
-        $Consulta = "SELECT * FROM kerkly WHERE Curp = '$Curp'";
+        /*$Consulta = "SELECT * FROM kerkly WHERE Curp = '$Curp'";
         $checkCurp = mysqli_fetch_array(mysqli_query($con, $Consulta));
        if(isset($checkCurp)){
            //Aqui poner el diseño de error
@@ -69,7 +73,7 @@ class ClaseKerkly {
       
           if ($ejecutado == 1) {
               $idDireccion = mysqli_insert_id($con);
-          }
+          }*/
 
         //NUEVO OFICIOS
         $consultaSelect = "SELECT idOficio from oficios where nombreO = '$oficio';";
@@ -79,18 +83,16 @@ class ClaseKerkly {
         while ($fila=mysqli_fetch_array($ResultadoOficio)){
             $idOficio = $fila[0];
         }
+        
+        //$sqlInsertOficio="INSERT INTO oficio_kerkly (idoficio_trabajador,id_oficioK,id_kerklyK) VALUES (20,'$idOficio','$Curp')";
+        /*$ResultadoOficio2  = mysqli_query($con, $sqlInsertOficio);
+        
+        echo "$idOficio,$oficio, $selectOficios,$Curp";*/
 
-        $sqlInsertOficio="INSERT INTO oficio_kerkly (id_oficioK,id_kerklyK) VALUES ($idOficio,'$Curp')";
-        $ResultadoOficio2  = mysqli_query($con, $sqlInsertOficio);
+        /*if($ResultadoOficio2 == 1){*/
+           /* echo "si jalo insertar el oficio proo";*/
 
-        if($ResultadoOficio2 == 1){
-            echo "si jalo insertar el oficio proo";
-        }else{
-            echo "no jalo :'(";
-        }
-
-
-             //manipulando para guardar archivos referencia de trabajo 1
+            //manipulando para guardar archivos referencia de trabajo 1
          
             if(empty($_FILES[$tipo_imagen]["name"]) || empty($_FILES[$tipo_imagen2]["name"])
              || empty($_FILES[$tipo_imagen3]["name"]) || empty($_FILES[$tipo_imagen4]["name"])
@@ -451,10 +453,26 @@ class ClaseKerkly {
                 
                 if(mysqli_query($con,$insertar)){
                     //header('Location: InfoDom.html');
-                    echo "<script>
+                    $sqlInsertOficio="INSERT INTO oficio_kerkly (idoficio_trabajador,id_oficioK,id_kerklyK) VALUES ('24','$idOficio','$Curp')";
+                    $ResultadoOficio2  = mysqli_query($con, $sqlInsertOficio);
+        
+                    //echo "$idOficio,$oficio,$Curp";
+
+                    if($ResultadoOficio2==1){
+                        echo "jalo";
+                        echo "<script>
                         alert('Usuario insertado exitosamente');
                         location.assign('RegistroKERKLY.php');
                         </script>";
+                   
+                    }else{
+                        echo "no jalo";
+                        echo '¡Error 470!' .$insertar.mysqli_error($con);
+                    }
+                    /*echo "<script>
+                        alert('Usuario insertado exitosamente');
+                        location.assign('RegistroKERKLY.php');
+                        </script>";*/
                    
 
                     //echo 'listo';
@@ -466,11 +484,17 @@ class ClaseKerkly {
             }
     
         }
+        /*}else{
+            echo "no jalo :'(";
+        }*/
+
+
+             
         
     }
     
 }
  
 
-}   
+   
 ?>

@@ -318,6 +318,7 @@
                                 <path fill-rule="evenodd" d="M10 8a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 8z"
                                     clip-rule="evenodd" />
                             </svg></span>
+                            <span id="ine" class="css-button-text">Cargar Archivo</span> 
                             <input type="file" name="ReferenciaTrabajo2" id="ReferenciaTrabajo2">
                     </a>
 
@@ -338,6 +339,7 @@
                                 <path fill-rule="evenodd" d="M10 8a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 8z"
                                     clip-rule="evenodd" />
                             </svg></span>
+                            <span id="ine" class="css-button-text">Cargar Archivo</span>
                             <input type="file" name="ReferenciaFamiliar" id="ReferenciaFamiliar">
                     </a>
 
