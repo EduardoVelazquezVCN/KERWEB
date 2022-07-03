@@ -606,7 +606,7 @@
 
                 <!-- Text input -->
                 <div class="form-outline mb-3">
-                    <input type="password" id="contrasena" class="form-control" placeholder="Password" />
+                    <input type="password" id="contrasena" class="form-control" placeholder="Password" name="Contrasena"/>
                     <label class="form-label" for="form1">Crear contraseña</label> <label for="form1" id="campoO">*</label>
                 </div>
 
@@ -614,7 +614,7 @@
 
                 <!-- Icons by https://heroicons.com/ -->
                 <div class="form-outline mb-3">
-                    <input type="password" id="contrasenaConfirm" class="form-control" placeholder="Password" data-lpignore="true">
+                    <input type="password" id="contrasenaConfirm" class="form-control" placeholder="Password" data-lpignore="true" name="Contrasena">
                     <label class="form-label" for="form1">Confirmar contraseña</label> <label for="form1" id="campoO">*</label>
                     <!--<svg xmlns="http://www.w3.org/2000/svg" class="input-icon password" viewBox="0 0 20 20"
                     fill="currentColor">

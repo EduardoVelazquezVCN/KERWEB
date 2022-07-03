@@ -71,12 +71,20 @@ if (isset($_POST['telNegocio'])) {
     $Kerklys['telNegocio'] = $_POST['telNegocio'];
 }
 
+if(isset($_POST['Contrasena'])){
+    //$contra= $_POST['Contrasena'];
+    
+    $Kerklys['Contrasena'] = $_POST['Contrasena'];
+    $Contrasena = $Kerklys['Contrasena'];
+   // echo $Contrasena;
+}
+
 
 
 
 $Registrar = new ClaseKerkly ();
 
-$Registrar->RegistrarKerkly1($Kerklys, "ReferenciaTrabajo1", "ReferenciaTrabajo2","ReferenciaFamiliar" ,"fotoKerkly" , "INEKerkly" , "curpKERKLY" , "comprobanteDomicilio" , "certificadoMedico" ,"cartaAntePenales","regSatKERKLY" , "comprobanteVacuna" , "fotoDomicilioPart" ,"fotoLocal");
+$Registrar->RegistrarKerkly1($Kerklys, "ReferenciaTrabajo1", "ReferenciaTrabajo2","ReferenciaFamiliar" ,"fotoKerkly" , "INEKerkly" , "curpKERKLY" , "comprobanteDomicilio" , "certificadoMedico" ,"cartaAntePenales","regSatKERKLY" , "comprobanteVacuna" , "fotoDomicilioPart" ,"fotoLocal", $Contrasena);
 
 /*$Registrar2 = new ClaseKerkly2 ();
 
