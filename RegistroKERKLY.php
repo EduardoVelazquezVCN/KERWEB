@@ -165,6 +165,7 @@
             <script src="ocultarValidar.js"></script>
             <div id="botondiv">
                 <button type="button" id="botonGuardar" onclick="check();">Siguiente</button>
+                
             </div>
         </nav>
 
@@ -174,6 +175,7 @@
             <nav id="form">
 
                 <!-- Text input -->
+                <script src="validarSoloTexto.js"></script>
                 <div class="form-outline mb-3">
                     <input type="text" id="estado" name="Estado" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Estado</label> <label for="form1" id="campoO">*</label>
@@ -203,13 +205,13 @@
                 </div>
                 <!-- Text input -->
                 <div class="form-outline mb-3">
-                    <input type="text" id="NoExt" name="NoExt" class="form-control" placeholder="---" />
+                    <input type="number" id="NoExt" name="NoExt" maxlength="3" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" placeholder="232" />
                     <label class="form-label" for="form1">Número exterior</label> <label for="form1" id="campoO">*</label>
                 </div>
                 <!-- Text input -->
                 <div class="form-outline mb-3">
-                    <input type="text" id="NoInt" name="NoInt" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Número interior</label> <label for="form1" id="campoO">*</label>
+                    <input type="number" id="NoInt" name="NoInt" maxlength="3" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" placeholder="232" />
+                    <label class="form-label" for="form1">Número interior</label>
                 </div>
                 <div>
                     <h1 id="camposO">* Campos obligatorios</h1>
@@ -230,11 +232,13 @@
                 <script src="ocultarForm.js"></script>
                 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                 <script src="validar.js"></script>
+                <script src="ocultarValidar.js"></script>
                 <!--<button type="button" id="botonGuardar" onclick="ocultarFommulario2();">Siguiente</button> -->
                 <!-- <button type="submit" value="Siguiente" class="btn btn-primary btn-block mb-3" onclick="validar();">Guardar</button>-->
                 <!-- <input id="botonGuardar" type="submit" value="Siguiente" class="btn btn-primary btn-block mb-3">-->
                 <!--<button onclick= "location.href='prueba.html'">HOLIWIS</button>-->
                 <button type="button" id="botonGuardar" onclick="check2();">Siguiente</button>
+               <!-- <button type="button" id="botonRegresar" onclick="volver1();">Atras</button>-->
             </div>
         </nav>
 
@@ -266,6 +270,8 @@
                         </select>
                          Seleccione oficio: 
                     </label><label for="form1" id="campoO">*</label>
+
+                    
                 </div>
 
 
@@ -294,7 +300,7 @@
                             </svg></span>
                         <!-- Text input -->
                         <!--<span id="refTrabajo1" name="RefTrabajo1" class="css-button-text">Cargar Archivo</span>-->
-                        <input type="file" name="ReferenciaTrabajo1">
+                        <input type="file" name="ReferenciaTrabajo1" id="ReferenciaTrabajo1">
                     </a>
                 </div>
 
@@ -312,7 +318,7 @@
                                 <path fill-rule="evenodd" d="M10 8a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 8z"
                                     clip-rule="evenodd" />
                             </svg></span>
-                            <input type="file" name="ReferenciaTrabajo2">
+                            <input type="file" name="ReferenciaTrabajo2" id="ReferenciaTrabajo2">
                     </a>
 
                 </div>
@@ -332,7 +338,7 @@
                                 <path fill-rule="evenodd" d="M10 8a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 8z"
                                     clip-rule="evenodd" />
                             </svg></span>
-                            <input type="file" name="ReferenciaFamiliar">
+                            <input type="file" name="ReferenciaFamiliar" id="ReferenciaFamiliar">
                     </a>
 
                 </div>

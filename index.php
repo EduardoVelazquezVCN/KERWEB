@@ -62,7 +62,7 @@
                         <input type="password" class="form-control" name="password" id="signin-contraseña" placeholder="Ingrese su contraseña" required>
                     </div>
                     <div class="form-group mx-sm-4 pb-1">
-                        <input class="btn btn-block ingresar2" name="enviar" value="INGRESAR" type="submit">
+                        <input class="btn btn-block ingresar2" id="ingresar" name="enviar" value="INGRESAR" type="submit">
                     </div>
                 </form>
             </div>

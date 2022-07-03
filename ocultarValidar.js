@@ -148,6 +148,8 @@ function ocultarFommulario1() {
   document.getElementById('form6').style.display = 'none';
 }
 
+
+
 function check() {
 
   if (validar() == false) {
@@ -284,10 +286,27 @@ function check2() {
   }
 }
 
+function volver1(){
+  document.getElementById('Formulario1').style.display = 'block';
+  document.getElementById('Formulario2').style.display = 'none';
+  document.getElementById('Formulario3').style.display = 'none';
+  document.getElementById('Formulario4').style.display = 'none';
+  document.getElementById('Formulario5').style.display = 'none';
+  document.getElementById('form2').style.display = 'block';
+  document.getElementById('form3').style.display = 'none';
+  document.getElementById('form4').style.display = 'none';
+  document.getElementById('form5').style.display = 'none';
+  document.getElementById('form6').style.display = 'none';
+}
+
+function volverFormulario1(){
+  //volver1();
+  console.log("estoy aqui regresando");
+}
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 /* validacion info oficios */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-/*function validarOficios() {
+function validarOficios() {
   if (NoOficio.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
@@ -300,7 +319,7 @@ function check2() {
     })
     return false;
   }
-  else if (Oficio.value == "") {
+  else if (oficios.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
       showClass: {
@@ -324,7 +343,7 @@ function check2() {
     })
     return false;
   }
-  else if (refTrabajo1.value == "") {
+  else if (ReferenciaTrabajo1.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
       showClass: {
@@ -336,7 +355,7 @@ function check2() {
     })
     return false;
   }
-  else if (refTrabajo2.value == "") {
+  else if (ReferenciaTrabajo2.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
       showClass: {
@@ -348,7 +367,7 @@ function check2() {
     })
     return false;
   }
-  else if (refFamiliar.value == "") {
+  else if (ReferenciaFamiliar.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
       showClass: {
@@ -360,7 +379,7 @@ function check2() {
     })
     return false;
   }
-}*/
+}
 /*block el formulario siguiente*/
 function ocultarFommulario3() {
   document.getElementById('Formulario1').style.display = 'none';
@@ -376,22 +395,22 @@ function ocultarFommulario3() {
   
 }
 
-/*function check3() {
+function check3() {
   if (validarOficios() == false) {
     validarOficios();
-    console.log('estoy aqui 3');
+    console.log('estoy aqui oficios');
   } else {
     ocultarFommulario3();
-    console.log('estoy aca 3');
+    console.log('estoy aca oficios');
   }
-}*/
+}
 
-function check3(){
+/*function check3(){
   
     ocultarFommulario3();
     console.log("estoy aqui w");
   
-}
+}*/
 
 
 
