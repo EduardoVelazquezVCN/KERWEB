@@ -1,0 +1,953 @@
+-- MySQL dump 10.13  Distrib 8.0.24, for Win64 (x86_64)
+--
+-- Host: localhost    Database: fastword
+-- ------------------------------------------------------
+-- Server version	8.0.24
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `antecedentes_penales`
+--
+
+DROP TABLE IF EXISTS `antecedentes_penales`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `antecedentes_penales` (
+  `idantecedentes_penales` int NOT NULL,
+  `fechaExpedicion` datetime NOT NULL,
+  `fechaLimite` datetime NOT NULL,
+  `documnto_foto` blob,
+  PRIMARY KEY (`idantecedentes_penales`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `antecedentes_penales`
+--
+
+LOCK TABLES `antecedentes_penales` WRITE;
+/*!40000 ALTER TABLE `antecedentes_penales` DISABLE KEYS */;
+/*!40000 ALTER TABLE `antecedentes_penales` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bitacora`
+--
+
+DROP TABLE IF EXISTS `bitacora`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `bitacora` (
+  `idbitacora` int NOT NULL,
+  `accion` varchar(1000) NOT NULL,
+  `fechaIngreso` datetime NOT NULL,
+  `fechaSalida` datetime NOT NULL,
+  `fechaAccion` datetime NOT NULL,
+  `correoAccion` varchar(25) NOT NULL,
+  PRIMARY KEY (`idbitacora`),
+  KEY `fk_Correo_Usuario_idx` (`correoAccion`),
+  CONSTRAINT `fk_Correo_Usuario_Accion` FOREIGN KEY (`correoAccion`) REFERENCES `cliente` (`Correo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bitacora`
+--
+
+LOCK TABLES `bitacora` WRITE;
+/*!40000 ALTER TABLE `bitacora` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bitacora` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cliente`
+--
+
+DROP TABLE IF EXISTS `cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cliente` (
+  `Correo` varchar(25) NOT NULL,
+  `Nombre` varchar(45) NOT NULL,
+  `Apellido_Paterno` varchar(45) NOT NULL,
+  `Apellido_Materno` varchar(45) NOT NULL,
+  `Dirección_idDirección` int NOT NULL,
+  `telefonoCliente` varchar(10) NOT NULL,
+  `generoCliente` char(1) NOT NULL,
+  `Contraseña` varchar(8) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `fue_NoRegistrado` tinyint NOT NULL,
+  PRIMARY KEY (`Correo`),
+  KEY `fk_Usuario_Dirección1_idx` (`Dirección_idDirección`),
+  CONSTRAINT `fk_Usuario_Dirección1` FOREIGN KEY (`Dirección_idDirección`) REFERENCES `dirección` (`idDirección`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cliente`
+--
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clientenoregistrado`
+--
+
+DROP TABLE IF EXISTS `clientenoregistrado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `clientenoregistrado` (
+  `Dirección_idDirección` int NOT NULL,
+  `NumTelefónicoDelClienteNoRegistrado_NumClienteNoR` int NOT NULL,
+  `id_ClieteNoRegistrado` int NOT NULL,
+  `IngresarCódigoDeValidación` int NOT NULL,
+  PRIMARY KEY (`id_ClieteNoRegistrado`),
+  KEY `fk_UsuarioExpres_Dirección_idx` (`Dirección_idDirección`),
+  KEY `fk_ClienteNoRegistrado_NumDelClienteNoRegistrado1_idx` (`NumTelefónicoDelClienteNoRegistrado_NumClienteNoR`),
+  CONSTRAINT `fk_ClienteNoRegistrado_NumDelClienteNoRegistrado1` FOREIGN KEY (`NumTelefónicoDelClienteNoRegistrado_NumClienteNoR`) REFERENCES `numtelefónicodelclientenoregistrado` (`NumClienteNoR`),
+  CONSTRAINT `fk_UsuarioExpres_Dirección` FOREIGN KEY (`Dirección_idDirección`) REFERENCES `dirección` (`idDirección`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clientenoregistrado`
+--
+
+LOCK TABLES `clientenoregistrado` WRITE;
+/*!40000 ALTER TABLE `clientenoregistrado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `clientenoregistrado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contratista`
+--
+
+DROP TABLE IF EXISTS `contratista`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contratista` (
+  `idcontratista` int NOT NULL,
+  `nombreCotratista` varchar(45) NOT NULL,
+  `apellidoPaternoContratista` varchar(45) NOT NULL,
+  `apellidoMaternoContratista` varchar(45) DEFAULT NULL,
+  `contraseña` varchar(45) NOT NULL,
+  `nombreUsuarioContratista` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idcontratista`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contratista`
+--
+
+LOCK TABLES `contratista` WRITE;
+/*!40000 ALTER TABLE `contratista` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contratista` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contrato`
+--
+
+DROP TABLE IF EXISTS `contrato`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contrato` (
+  `idContrato` int NOT NULL AUTO_INCREMENT,
+  `Fecha_Inicio` datetime NOT NULL,
+  `Fecha_Final` datetime NOT NULL,
+  `id_presupuesto` int NOT NULL,
+  `idDireccion` int NOT NULL,
+  `calificacion_cliente` int NOT NULL,
+  `Comentario del servicio` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idContrato`),
+  KEY `fk_Contrato_Pago1_idx` (`id_presupuesto`),
+  KEY `foranea_direccion_c_idx` (`idDireccion`),
+  CONSTRAINT `foranea_direccion_c` FOREIGN KEY (`idDireccion`) REFERENCES `dirección` (`idDirección`),
+  CONSTRAINT `presupuesto_c` FOREIGN KEY (`id_presupuesto`) REFERENCES `presupuesto` (`idPresupuesto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contrato`
+--
+
+LOCK TABLES `contrato` WRITE;
+/*!40000 ALTER TABLE `contrato` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contrato` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contrato_noregistrado`
+--
+
+DROP TABLE IF EXISTS `contrato_noregistrado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contrato_noregistrado` (
+  `idContraNoRegistrado` int NOT NULL,
+  `Fecha_Inicio_NoRegistrado` datetime NOT NULL,
+  `Fecha_Final_NoRegistrado` datetime NOT NULL,
+  `UsuarioNoRegistrado_Telefono` int NOT NULL,
+  `dirección_idDirección` int NOT NULL,
+  `presupuesto_idPresupuesto` int NOT NULL,
+  `ClienteNoRegistrado_id_ClieteNoRegistrado` int NOT NULL,
+  PRIMARY KEY (`idContraNoRegistrado`),
+  KEY `fk_contrato_noRegistrado_dirección1_idx` (`dirección_idDirección`),
+  KEY `fk_contrato_noRegistrado_presupuesto1_idx` (`presupuesto_idPresupuesto`),
+  KEY `fk_contrato_noregistrado_ClienteNoRegistrado1_idx` (`ClienteNoRegistrado_id_ClieteNoRegistrado`),
+  CONSTRAINT `fk_contrato_noregistrado_ClienteNoRegistrado1` FOREIGN KEY (`ClienteNoRegistrado_id_ClieteNoRegistrado`) REFERENCES `clientenoregistrado` (`id_ClieteNoRegistrado`),
+  CONSTRAINT `fk_contrato_noRegistrado_dirección1` FOREIGN KEY (`dirección_idDirección`) REFERENCES `dirección` (`idDirección`),
+  CONSTRAINT `fk_contrato_noRegistrado_presupuesto1` FOREIGN KEY (`presupuesto_idPresupuesto`) REFERENCES `presupuesto` (`idPresupuesto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contrato_noregistrado`
+--
+
+LOCK TABLES `contrato_noregistrado` WRITE;
+/*!40000 ALTER TABLE `contrato_noregistrado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contrato_noregistrado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `control_calidad`
+--
+
+DROP TABLE IF EXISTS `control_calidad`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `control_calidad` (
+  `idcontrol_calidad` int NOT NULL,
+  `calificacion` int NOT NULL,
+  `observaciones` varchar(1000) NOT NULL,
+  `porcentaje_conocimiento` int NOT NULL,
+  `oficios_solicitante_idoficios_solicitante` int NOT NULL,
+  `contratista_idcontratista` int NOT NULL,
+  `estado` tinyint DEFAULT NULL,
+  `puestos_delTrabajador_idpuestos_delTrabajador` int DEFAULT NULL,
+  PRIMARY KEY (`idcontrol_calidad`),
+  KEY `fk_control_calidad_oficios_solicitante1_idx` (`oficios_solicitante_idoficios_solicitante`),
+  KEY `fk_control_calidad_contratista1_idx` (`contratista_idcontratista`),
+  KEY `fk_control_calidad_puestos_delTrabajador1_idx` (`puestos_delTrabajador_idpuestos_delTrabajador`),
+  CONSTRAINT `fk_control_calidad_contratista1` FOREIGN KEY (`contratista_idcontratista`) REFERENCES `contratista` (`idcontratista`),
+  CONSTRAINT `fk_control_calidad_oficios_solicitante1` FOREIGN KEY (`oficios_solicitante_idoficios_solicitante`) REFERENCES `oficios_solicitante` (`idoficios_solicitante`),
+  CONSTRAINT `fk_control_calidad_puestos_delTrabajador1` FOREIGN KEY (`puestos_delTrabajador_idpuestos_delTrabajador`) REFERENCES `puestos_deltrabajador` (`idpuestos_delTrabajador`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `control_calidad`
+--
+
+LOCK TABLES `control_calidad` WRITE;
+/*!40000 ALTER TABLE `control_calidad` DISABLE KEYS */;
+/*!40000 ALTER TABLE `control_calidad` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `curriculum_trabajador`
+--
+
+DROP TABLE IF EXISTS `curriculum_trabajador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `curriculum_trabajador` (
+  `idcurriculum_Trabajador` int NOT NULL,
+  `idLaboral_Trabajador` int NOT NULL,
+  `idEstudio_Trabajador` int NOT NULL,
+  `idDireccion_Trabajador` int NOT NULL,
+  `antecedentes_penales_Trabajador` int NOT NULL,
+  `id_Trabajador` varchar(18) NOT NULL,
+  `id_Curso_Trabajador` int NOT NULL,
+  PRIMARY KEY (`idcurriculum_Trabajador`),
+  KEY `ref_laboral_ad_idx` (`idLaboral_Trabajador`),
+  KEY `id_curso_ad_foranea_idx` (`id_Curso_Trabajador`),
+  KEY `foranea_estudio_ad_idx` (`idEstudio_Trabajador`),
+  KEY `foranea_antecedentes_ad_idx` (`antecedentes_penales_Trabajador`),
+  KEY `foranea_admin_idx` (`id_Trabajador`),
+  KEY `foranea_dirr_idx` (`idDireccion_Trabajador`),
+  CONSTRAINT `foranea_admin` FOREIGN KEY (`id_Trabajador`) REFERENCES `trabajadores` (`curpTrabajador`),
+  CONSTRAINT `foranea_antecedentes_ad` FOREIGN KEY (`antecedentes_penales_Trabajador`) REFERENCES `antecedentes_penales` (`idantecedentes_penales`),
+  CONSTRAINT `foranea_dirr` FOREIGN KEY (`idDireccion_Trabajador`) REFERENCES `dirección` (`idDirección`),
+  CONSTRAINT `foranea_estudio_ad` FOREIGN KEY (`idEstudio_Trabajador`) REFERENCES `grado_de_estudio` (`idGrado_De_Estudio`),
+  CONSTRAINT `id_curso_ad_foranea` FOREIGN KEY (`id_Curso_Trabajador`) REFERENCES `curso` (`idCurso`),
+  CONSTRAINT `ref_laboral_ad` FOREIGN KEY (`idLaboral_Trabajador`) REFERENCES `referencia_laboral` (`idReferencia_Laboral`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `curriculum_trabajador`
+--
+
+LOCK TABLES `curriculum_trabajador` WRITE;
+/*!40000 ALTER TABLE `curriculum_trabajador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `curriculum_trabajador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `curriculumkerkly`
+--
+
+DROP TABLE IF EXISTS `curriculumkerkly`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `curriculumkerkly` (
+  `idcurriculum` int NOT NULL,
+  `idLaboral` int NOT NULL,
+  `idEstudio` int NOT NULL,
+  `idDireccion` int NOT NULL,
+  `antecedentesPenales` int NOT NULL,
+  PRIMARY KEY (`idcurriculum`),
+  KEY `Ref_laboral_idx` (`idLaboral`),
+  KEY `id_Estudio_Curr_idx` (`idEstudio`),
+  KEY `id_dir_curr_idx` (`idDireccion`),
+  KEY `id_antecedentes_idx` (`antecedentesPenales`),
+  CONSTRAINT `id_antecedentes_curr` FOREIGN KEY (`antecedentesPenales`) REFERENCES `antecedentes_penales` (`idantecedentes_penales`),
+  CONSTRAINT `id_dir_curr` FOREIGN KEY (`idDireccion`) REFERENCES `dirección` (`idDirección`),
+  CONSTRAINT `id_Estudio_Curr` FOREIGN KEY (`idEstudio`) REFERENCES `grado_de_estudio` (`idGrado_De_Estudio`),
+  CONSTRAINT `Ref_laboral` FOREIGN KEY (`idLaboral`) REFERENCES `referencia_laboral` (`idReferencia_Laboral`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `curriculumkerkly`
+--
+
+LOCK TABLES `curriculumkerkly` WRITE;
+/*!40000 ALTER TABLE `curriculumkerkly` DISABLE KEYS */;
+/*!40000 ALTER TABLE `curriculumkerkly` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `curso`
+--
+
+DROP TABLE IF EXISTS `curso`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `curso` (
+  `idCurso` int NOT NULL,
+  `Nombre` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idCurso`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `curso`
+--
+
+LOCK TABLES `curso` WRITE;
+/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
+/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `curso_kerkly`
+--
+
+DROP TABLE IF EXISTS `curso_kerkly`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `curso_kerkly` (
+  `idcurso_kerkly` int NOT NULL,
+  `Curp` varchar(18) NOT NULL,
+  `id_cursoC` int NOT NULL,
+  PRIMARY KEY (`idcurso_kerkly`),
+  KEY `kf_cursoC_idx` (`id_cursoC`),
+  KEY `fk_kerlyC_idx` (`Curp`),
+  CONSTRAINT `fk_kerlyC` FOREIGN KEY (`Curp`) REFERENCES `kerkly` (`Curp`),
+  CONSTRAINT `kf_cursoC` FOREIGN KEY (`id_cursoC`) REFERENCES `curso` (`idCurso`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `curso_kerkly`
+--
+
+LOCK TABLES `curso_kerkly` WRITE;
+/*!40000 ALTER TABLE `curso_kerkly` DISABLE KEYS */;
+/*!40000 ALTER TABLE `curso_kerkly` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `códigodeseguridad`
+--
+
+DROP TABLE IF EXISTS `códigodeseguridad`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `códigodeseguridad` (
+  `idCódigoDeSeguridad` int NOT NULL,
+  `Código` int NOT NULL,
+  PRIMARY KEY (`idCódigoDeSeguridad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `códigodeseguridad`
+--
+
+LOCK TABLES `códigodeseguridad` WRITE;
+/*!40000 ALTER TABLE `códigodeseguridad` DISABLE KEYS */;
+/*!40000 ALTER TABLE `códigodeseguridad` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `detencióndelcódigoparaelnúmtelef`
+--
+
+DROP TABLE IF EXISTS `detencióndelcódigoparaelnúmtelef`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `detencióndelcódigoparaelnúmtelef` (
+  `idDetenciónDelCódigoParaElNúmTelef` int NOT NULL,
+  `Fecha` date NOT NULL,
+  `Hora` varchar(45) NOT NULL,
+  `CódigoDeSeguridad_idCódigoDeSeguridad` int NOT NULL,
+  PRIMARY KEY (`idDetenciónDelCódigoParaElNúmTelef`),
+  KEY `fk_DetenciónDelCódigoParaElNúmTelef_CódigoDeSeguridad1_idx` (`CódigoDeSeguridad_idCódigoDeSeguridad`),
+  CONSTRAINT `fk_DetenciónDelCódigoParaElNúmTelef_CódigoDeSeguridad1` FOREIGN KEY (`CódigoDeSeguridad_idCódigoDeSeguridad`) REFERENCES `códigodeseguridad` (`idCódigoDeSeguridad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `detencióndelcódigoparaelnúmtelef`
+--
+
+LOCK TABLES `detencióndelcódigoparaelnúmtelef` WRITE;
+/*!40000 ALTER TABLE `detencióndelcódigoparaelnúmtelef` DISABLE KEYS */;
+/*!40000 ALTER TABLE `detencióndelcódigoparaelnúmtelef` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dirección`
+--
+
+DROP TABLE IF EXISTS `dirección`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `dirección` (
+  `idDirección` int NOT NULL AUTO_INCREMENT,
+  `Calle` varchar(50) NOT NULL,
+  `Colonia` varchar(50) NOT NULL,
+  `Barrio` varchar(50) DEFAULT NULL,
+  `No_Interior` int DEFAULT NULL,
+  `No_Exterior` int NOT NULL,
+  `Codigo_Postal` int NOT NULL,
+  `Referencia` varchar(200) NOT NULL,
+  `foto_domicilio` blob NOT NULL,
+  PRIMARY KEY (`idDirección`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dirección`
+--
+
+LOCK TABLES `dirección` WRITE;
+/*!40000 ALTER TABLE `dirección` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dirección` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `experiencia_laboral`
+--
+
+DROP TABLE IF EXISTS `experiencia_laboral`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `experiencia_laboral` (
+  `idexperiencia_laboral` int NOT NULL,
+  `nombreEmpresa` varchar(45) NOT NULL,
+  `fechaIngreso` date NOT NULL,
+  `fechaSalida` date DEFAULT NULL,
+  `areaTrabajo` varchar(45) NOT NULL,
+  `sueldo` float NOT NULL,
+  `nombreJefe` varchar(45) DEFAULT NULL,
+  `telefonoEmpresa` varchar(10) DEFAULT NULL,
+  `direccion_empresa` int DEFAULT NULL,
+  `soliicitante_idsoliicitante` int DEFAULT NULL,
+  `kerkly_Curp` varchar(18) DEFAULT NULL,
+  `trabajadores_curpTrabajador` varchar(18) DEFAULT NULL,
+  KEY `fk_direccion_el_idx` (`direccion_empresa`),
+  KEY `fk_experiencia_laboral_soliicitante1_idx` (`soliicitante_idsoliicitante`),
+  KEY `fk_experiencia_laboral_kerkly1_idx` (`kerkly_Curp`),
+  KEY `fk_experiencia_laboral_trabajadores1_idx` (`trabajadores_curpTrabajador`),
+  CONSTRAINT `fk_direccion_el` FOREIGN KEY (`direccion_empresa`) REFERENCES `dirección` (`idDirección`),
+  CONSTRAINT `fk_experiencia_laboral_kerkly1` FOREIGN KEY (`kerkly_Curp`) REFERENCES `kerkly` (`Curp`),
+  CONSTRAINT `fk_experiencia_laboral_soliicitante1` FOREIGN KEY (`soliicitante_idsoliicitante`) REFERENCES `soliicitante` (`idsoliicitante`),
+  CONSTRAINT `fk_experiencia_laboral_trabajadores1` FOREIGN KEY (`trabajadores_curpTrabajador`) REFERENCES `trabajadores` (`curpTrabajador`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `experiencia_laboral`
+--
+
+LOCK TABLES `experiencia_laboral` WRITE;
+/*!40000 ALTER TABLE `experiencia_laboral` DISABLE KEYS */;
+/*!40000 ALTER TABLE `experiencia_laboral` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `familiares`
+--
+
+DROP TABLE IF EXISTS `familiares`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `familiares` (
+  `curp` varchar(18) NOT NULL,
+  `nombre(s)` varchar(30) NOT NULL,
+  `apellidoPaterno` varchar(15) NOT NULL,
+  `apellidoMaterno` varchar(15) NOT NULL,
+  `identificacion_oficial` blob NOT NULL,
+  `ocupacion` varchar(45) NOT NULL,
+  `foto_domicilio` blob NOT NULL,
+  `dirección_idDirección` int NOT NULL,
+  PRIMARY KEY (`curp`),
+  KEY `fk_familiares_dirección1_idx` (`dirección_idDirección`),
+  CONSTRAINT `fk_familiares_dirección1` FOREIGN KEY (`dirección_idDirección`) REFERENCES `dirección` (`idDirección`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `familiares`
+--
+
+LOCK TABLES `familiares` WRITE;
+/*!40000 ALTER TABLE `familiares` DISABLE KEYS */;
+/*!40000 ALTER TABLE `familiares` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `grado_de_estudio`
+--
+
+DROP TABLE IF EXISTS `grado_de_estudio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grado_de_estudio` (
+  `idGrado_De_Estudio` int NOT NULL,
+  `Nombre_Primaria` varchar(200) DEFAULT NULL,
+  `Nombre_Secundaria` varchar(200) DEFAULT NULL,
+  `Nombre_Bachillerato` varchar(200) DEFAULT NULL,
+  `Nombre_Maestría` varchar(200) DEFAULT NULL,
+  `Nombre_Doctorado` varchar(200) DEFAULT NULL,
+  `familiares_curp` varchar(18) NOT NULL,
+  `Nombre_licenciatura` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`idGrado_De_Estudio`),
+  KEY `fk_grado_de_estudio_familiares1_idx` (`familiares_curp`),
+  CONSTRAINT `fk_grado_de_estudio_familiares1` FOREIGN KEY (`familiares_curp`) REFERENCES `familiares` (`curp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grado_de_estudio`
+--
+
+LOCK TABLES `grado_de_estudio` WRITE;
+/*!40000 ALTER TABLE `grado_de_estudio` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grado_de_estudio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `kerkly`
+--
+
+DROP TABLE IF EXISTS `kerkly`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `kerkly` (
+  `Curp` varchar(18) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
+  `Apellido_Paterno` varchar(50) NOT NULL,
+  `Apellido_Materno` varchar(50) NOT NULL,
+  `Telefono` varchar(10) NOT NULL,
+  `No_RFC` varchar(13) NOT NULL,
+  `foto_domiciio` blob NOT NULL,
+  `certificado_medico` blob NOT NULL,
+  `IdentificacionOficial` blob NOT NULL,
+  `FotoDelKerkly` blob NOT NULL,
+  `Género` char(1) DEFAULT NULL,
+  `FechaDeNacimiento` date NOT NULL,
+  `Contraseña` varchar(8) NOT NULL,
+  `Correro electrónico` varchar(45) NOT NULL,
+  PRIMARY KEY (`Curp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kerkly`
+--
+
+LOCK TABLES `kerkly` WRITE;
+/*!40000 ALTER TABLE `kerkly` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kerkly` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `numtelefónicodelclientenoregistrado`
+--
+
+DROP TABLE IF EXISTS `numtelefónicodelclientenoregistrado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `numtelefónicodelclientenoregistrado` (
+  `NumClienteNoR` int NOT NULL,
+  `Descripción` varchar(45) NOT NULL,
+  PRIMARY KEY (`NumClienteNoR`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `numtelefónicodelclientenoregistrado`
+--
+
+LOCK TABLES `numtelefónicodelclientenoregistrado` WRITE;
+/*!40000 ALTER TABLE `numtelefónicodelclientenoregistrado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `numtelefónicodelclientenoregistrado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oficio_kerkly`
+--
+
+DROP TABLE IF EXISTS `oficio_kerkly`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oficio_kerkly` (
+  `idoficio_trabajador` int NOT NULL,
+  `id_oficioK` int NOT NULL,
+  `id_kerklyK` varchar(18) NOT NULL,
+  PRIMARY KEY (`idoficio_trabajador`),
+  KEY `fk_oficio_idx` (`id_oficioK`),
+  KEY `fk_kerkly_idx` (`id_kerklyK`),
+  CONSTRAINT `fk_kerkly` FOREIGN KEY (`id_kerklyK`) REFERENCES `kerkly` (`Curp`),
+  CONSTRAINT `fk_oficio` FOREIGN KEY (`id_oficioK`) REFERENCES `oficios` (`idOficio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oficio_kerkly`
+--
+
+LOCK TABLES `oficio_kerkly` WRITE;
+/*!40000 ALTER TABLE `oficio_kerkly` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oficio_kerkly` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oficios`
+--
+
+DROP TABLE IF EXISTS `oficios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oficios` (
+  `idOficio` int NOT NULL,
+  `nombreO` varchar(45) NOT NULL,
+  PRIMARY KEY (`idOficio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oficios`
+--
+
+LOCK TABLES `oficios` WRITE;
+/*!40000 ALTER TABLE `oficios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oficios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oficios_solicitante`
+--
+
+DROP TABLE IF EXISTS `oficios_solicitante`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oficios_solicitante` (
+  `idoficios_solicitante` int NOT NULL,
+  `soliicitante_idsoliicitante` int NOT NULL,
+  `oficios_idOficio` int NOT NULL,
+  PRIMARY KEY (`idoficios_solicitante`),
+  KEY `fk_oficios_solicitante_soliicitante1_idx` (`soliicitante_idsoliicitante`),
+  KEY `fk_oficios_solicitante_oficios1_idx` (`oficios_idOficio`),
+  CONSTRAINT `fk_oficios_solicitante_oficios1` FOREIGN KEY (`oficios_idOficio`) REFERENCES `oficios` (`idOficio`),
+  CONSTRAINT `fk_oficios_solicitante_soliicitante1` FOREIGN KEY (`soliicitante_idsoliicitante`) REFERENCES `soliicitante` (`idsoliicitante`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oficios_solicitante`
+--
+
+LOCK TABLES `oficios_solicitante` WRITE;
+/*!40000 ALTER TABLE `oficios_solicitante` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oficios_solicitante` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `portafoliodeevidencia`
+--
+
+DROP TABLE IF EXISTS `portafoliodeevidencia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `portafoliodeevidencia` (
+  `idPortafolioDeEvidencia` int NOT NULL,
+  `Foto` blob NOT NULL,
+  `Descripción` varchar(45) NOT NULL,
+  `Kerkly_Curp` varchar(18) NOT NULL,
+  PRIMARY KEY (`idPortafolioDeEvidencia`),
+  KEY `fk_PortafolioDeEvidencia_Kerkly1_idx` (`Kerkly_Curp`),
+  CONSTRAINT `fk_PortafolioDeEvidencia_Kerkly1` FOREIGN KEY (`Kerkly_Curp`) REFERENCES `kerkly` (`Curp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `portafoliodeevidencia`
+--
+
+LOCK TABLES `portafoliodeevidencia` WRITE;
+/*!40000 ALTER TABLE `portafoliodeevidencia` DISABLE KEYS */;
+/*!40000 ALTER TABLE `portafoliodeevidencia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `presupuesto`
+--
+
+DROP TABLE IF EXISTS `presupuesto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `presupuesto` (
+  `idPresupuesto` int NOT NULL AUTO_INCREMENT,
+  `costo_trabajoTecnico` int NOT NULL,
+  `Porcentaje_Empresa` decimal(3,0) NOT NULL,
+  `pago_presupuesto` int NOT NULL,
+  `pago_total` int NOT NULL,
+  `iva` int NOT NULL,
+  `isr` int NOT NULL,
+  `Curp` varchar(18) NOT NULL,
+  `estado` tinyint NOT NULL,
+  `problema` varchar(1000) NOT NULL,
+  `idCliente` varchar(25) NOT NULL,
+  PRIMARY KEY (`idPresupuesto`),
+  KEY `trabajador_p_idx` (`Curp`),
+  KEY `clientr_p_idx` (`idCliente`),
+  CONSTRAINT `clientr_p` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`Correo`),
+  CONSTRAINT `trabajador_p` FOREIGN KEY (`Curp`) REFERENCES `kerkly` (`Curp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `presupuesto`
+--
+
+LOCK TABLES `presupuesto` WRITE;
+/*!40000 ALTER TABLE `presupuesto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `presupuesto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `puestos_deltrabajador`
+--
+
+DROP TABLE IF EXISTS `puestos_deltrabajador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `puestos_deltrabajador` (
+  `idpuestos_delTrabajador` int NOT NULL,
+  `trabajadores_curpTrabajador` varchar(18) NOT NULL,
+  `tipo_trabajador_idtipo_trabajador` int NOT NULL,
+  PRIMARY KEY (`idpuestos_delTrabajador`),
+  KEY `fk_puestos_delTrabajador_trabajadores1_idx` (`trabajadores_curpTrabajador`),
+  KEY `fk_puestos_delTrabajador_tipo_trabajador1_idx` (`tipo_trabajador_idtipo_trabajador`),
+  CONSTRAINT `fk_puestos_delTrabajador_tipo_trabajador1` FOREIGN KEY (`tipo_trabajador_idtipo_trabajador`) REFERENCES `tipo_trabajador` (`idtipo_trabajador`),
+  CONSTRAINT `fk_puestos_delTrabajador_trabajadores1` FOREIGN KEY (`trabajadores_curpTrabajador`) REFERENCES `trabajadores` (`curpTrabajador`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `puestos_deltrabajador`
+--
+
+LOCK TABLES `puestos_deltrabajador` WRITE;
+/*!40000 ALTER TABLE `puestos_deltrabajador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `puestos_deltrabajador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `referencia_laboral`
+--
+
+DROP TABLE IF EXISTS `referencia_laboral`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `referencia_laboral` (
+  `idReferencia_Laboral` int NOT NULL AUTO_INCREMENT,
+  `Nombre_Jefe` varchar(300) DEFAULT NULL,
+  `Puesto` varchar(50) DEFAULT NULL,
+  `Descripción_Trabajo` varchar(300) DEFAULT NULL,
+  `ídDirección` int DEFAULT NULL,
+  `Kerkly_Curp` varchar(18) DEFAULT NULL,
+  `familiares_curp` varchar(18) DEFAULT NULL,
+  `soliicitante_idsoliicitante` int DEFAULT NULL,
+  PRIMARY KEY (`idReferencia_Laboral`),
+  KEY `fk_Referencia_Laboral_Trabajador1_idx` (`Kerkly_Curp`),
+  KEY `fk_referencia_laboral_familiares1_idx` (`familiares_curp`),
+  KEY `fk_direccion_idx` (`ídDirección`),
+  KEY `fk_referencia_laboral_soliicitante1_idx` (`soliicitante_idsoliicitante`),
+  CONSTRAINT `fk_referencia_laboral_familiares1` FOREIGN KEY (`familiares_curp`) REFERENCES `familiares` (`curp`),
+  CONSTRAINT `fk_referencia_laboral_soliicitante1` FOREIGN KEY (`soliicitante_idsoliicitante`) REFERENCES `soliicitante` (`idsoliicitante`),
+  CONSTRAINT `fk_Referencia_Laboral_Trabajador1` FOREIGN KEY (`Kerkly_Curp`) REFERENCES `kerkly` (`Curp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `referencia_laboral`
+--
+
+LOCK TABLES `referencia_laboral` WRITE;
+/*!40000 ALTER TABLE `referencia_laboral` DISABLE KEYS */;
+/*!40000 ALTER TABLE `referencia_laboral` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `retiro`
+--
+
+DROP TABLE IF EXISTS `retiro`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `retiro` (
+  `ClaveInterbancaria` int NOT NULL,
+  `Nip` varchar(4) NOT NULL,
+  `Kerkly_Curp` varchar(18) NOT NULL,
+  PRIMARY KEY (`ClaveInterbancaria`),
+  KEY `fk_Retiro_Kerkly1_idx` (`Kerkly_Curp`),
+  CONSTRAINT `fk_Retiro_Kerkly1` FOREIGN KEY (`Kerkly_Curp`) REFERENCES `kerkly` (`Curp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `retiro`
+--
+
+LOCK TABLES `retiro` WRITE;
+/*!40000 ALTER TABLE `retiro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `retiro` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `soliicitante`
+--
+
+DROP TABLE IF EXISTS `soliicitante`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `soliicitante` (
+  `idsoliicitante` int NOT NULL,
+  `nombreSol` varchar(45) NOT NULL,
+  `apellidoPaternoSol` varchar(45) NOT NULL,
+  `apellidoMaternool` varchar(45) NOT NULL,
+  `domicilio` int NOT NULL,
+  `certificado_medico` blob,
+  `IdentificaciónOficial` blob,
+  `FotoSolicitante` blob,
+  PRIMARY KEY (`idsoliicitante`),
+  KEY `fk_domicilio_sol_idx` (`domicilio`),
+  CONSTRAINT `fk_domicilio_sol` FOREIGN KEY (`domicilio`) REFERENCES `dirección` (`idDirección`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `soliicitante`
+--
+
+LOCK TABLES `soliicitante` WRITE;
+/*!40000 ALTER TABLE `soliicitante` DISABLE KEYS */;
+/*!40000 ALTER TABLE `soliicitante` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tipo_trabajador`
+--
+
+DROP TABLE IF EXISTS `tipo_trabajador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipo_trabajador` (
+  `idtipo_trabajador` int NOT NULL,
+  `nombre_trabajo` varchar(45) NOT NULL,
+  `descripion_trabajo` varchar(45) NOT NULL,
+  PRIMARY KEY (`idtipo_trabajador`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipo_trabajador`
+--
+
+LOCK TABLES `tipo_trabajador` WRITE;
+/*!40000 ALTER TABLE `tipo_trabajador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipo_trabajador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `trabajadores`
+--
+
+DROP TABLE IF EXISTS `trabajadores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `trabajadores` (
+  `curpTrabajador` varchar(18) NOT NULL,
+  `nombre(s)Trabajador` varchar(45) NOT NULL,
+  `apellidoPaternoTrabajador` varchar(45) NOT NULL,
+  `apellidoMaternoTrabajador` varchar(45) NOT NULL,
+  `fechaNacimientoTrabajador` date NOT NULL,
+  `telefonoTrabajador` varchar(10) NOT NULL,
+  `correoTrabajador` varchar(45) NOT NULL,
+  `rfcTrabajador` varchar(45) NOT NULL,
+  `generoTrabajador` char(1) NOT NULL,
+  `IdentificacionOficial` blob NOT NULL,
+  PRIMARY KEY (`curpTrabajador`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trabajadores`
+--
+
+LOCK TABLES `trabajadores` WRITE;
+/*!40000 ALTER TABLE `trabajadores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trabajadores` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-07-13 15:54:04
