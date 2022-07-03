@@ -38,6 +38,15 @@ var txtSoloNumeros = document.getElementById("Tmovil")
 txtSoloNumeros.addEventListener("input", function (event) {
     validarTextoEntrada(this, "[0-9]")
 })
+
+var txtSoloNumeros = document.getElementById("NoInt")
+txtSoloNumeros.addEventListener("input", function (event) {
+    validarTextoEntrada(this, "[0-9]")
+})
+var txtSoloNumeros = document.getElementById("NoExt")
+txtSoloNumeros.addEventListener("input", function (event) {
+    validarTextoEntrada(this, "[0-9]")
+})
 var txtSoloNumeros = document.getElementById("telNegocio")
 txtSoloNumeros.addEventListener("input", function (event) {
     validarTextoEntrada(this, "[0-9]")

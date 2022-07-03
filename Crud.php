@@ -42,7 +42,7 @@ class ClaseKerkly {
         for ($i=0;$i<count($selectEstadoCivil);$i++) { 
             $EstadoC = $selectEstadoCivil[$i]; 
         } 
-       
+
         // INICIO select oficios -- obtencion de datos de bd 
         //$consultaOficios="SELECT * FROM kerkly where oficios";
         //$ejecutar=mysqli_query($con,$consultaOficios) or die(mysqli_error($con));
@@ -59,9 +59,38 @@ class ClaseKerkly {
        if(isset($checkCurp)){
            //Aqui poner el diseño de error
            //echo 'El Usuario Ya existe';
-           header('location: usuarioExistente.html');
+           header('location: usuarioExistente.php');
        }else{
-        //manipulando para guardar archivos referencia de trabajo 1
+
+          echo $Estado;
+          $sqlInsertDireccion = "INSERT INTO direccion (Estado, Ciudad, Codigo_Postal, Colonia, Calle, No_Interior, No_Exterior) VALUES('$Estado','$Localidad', '$codigoP','$Colonia','$calle','$NoInt', '$NoExt')";
+          //$sqlInsertOficio = "INSERT INTO oficio_kerkly";
+          $ejecutado = mysqli_query($con, $sqlInsertDireccion);
+      
+          if ($ejecutado == 1) {
+              $idDireccion = mysqli_insert_id($con);
+          }
+
+        //NUEVO OFICIOS
+        $consultaSelect = "SELECT idOficio from oficios where nombreO = '$oficio';";
+        $ResultadoOficio  = mysqli_query($con, $consultaSelect);
+        $idOficio = 0;
+
+        while ($fila=mysqli_fetch_array($ResultadoOficio)){
+            $idOficio = $fila[0];
+        }
+
+        $sqlInsertOficio="INSERT INTO oficio_kerkly (id_oficioK,id_kerklyK) VALUES ($idOficio,'$Curp')";
+        $ResultadoOficio2  = mysqli_query($con, $sqlInsertOficio);
+
+        if($ResultadoOficio2 == 1){
+            echo "si jalo insertar el oficio proo";
+        }else{
+            echo "no jalo :'(";
+        }
+
+
+             //manipulando para guardar archivos referencia de trabajo 1
          
             if(empty($_FILES[$tipo_imagen]["name"]) || empty($_FILES[$tipo_imagen2]["name"])
              || empty($_FILES[$tipo_imagen3]["name"]) || empty($_FILES[$tipo_imagen4]["name"])
@@ -399,9 +428,13 @@ class ClaseKerkly {
             $file_name13 = $token13.'.'.$extension13;
             $add13 = $targetDir13.$file_name13;
             //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
+
             $db_url_img13 = "http://localhost/keklywebv2/archivosCargados/$file_name13";
             }
             
+
+            $db_url_img13 = "http://localhost/KERWEB/archivosCargados/$file_name13";
+
         //fin subir archivos 13
        
         if(move_uploaded_file($_FILES[$tipo_imagen]["tmp_name"],$add) || move_uploaded_file($_FILES[$tipo_imagen2]["tmp_name"],$add2) || move_uploaded_file($_FILES[$tipo_imagen3]["tmp_name"],$add3) || move_uploaded_file($_FILES[$tipo_imagen4]["tmp_name"],$add4) || move_uploaded_file($_FILES[$tipo_imagen5]["tmp_name"],$add5) || move_uploaded_file($_FILES[$tipo_imagen6]["tmp_name"],$add6) || move_uploaded_file($_FILES[$tipo_imagen7]["tmp_name"],$add7) && move_uploaded_file($_FILES[$tipo_imagen8]["tmp_name"],$add8)  || move_uploaded_file($_FILES[$tipo_imagen9]["tmp_name"],$add9) || move_uploaded_file($_FILES[$tipo_imagen10]["tmp_name"],$add10) || move_uploaded_file($_FILES[$tipo_imagen11]["tmp_name"],$add11) || move_uploaded_file($_FILES[$tipo_imagen12]["tmp_name"],$add12) || move_uploaded_file($_FILES[$tipo_imagen13]["tmp_name"],$add13)){
