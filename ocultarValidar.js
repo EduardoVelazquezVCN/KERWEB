@@ -307,7 +307,7 @@ function volverFormulario1(){
 /* validacion info oficios */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 function validarOficios() {
-  if (NoOficio.value == "") {
+  /*if (NoOficio.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
       showClass: {
@@ -319,7 +319,7 @@ function validarOficios() {
     })
     return false;
   }
-  else if (oficios.value == "") {
+  else*/ if (oficios.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
       showClass: {

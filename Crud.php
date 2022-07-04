@@ -109,7 +109,10 @@ class ClaseKerkly {
                 $ext_formatos = array('png','gif','jpg','jpeg','pdf');
                 
                 if(!in_array(strtolower($extension),$ext_formatos)){
-                    echo 'Referencia Familiar2 Tipo de archivo no admitido';
+                   // echo 'Referencia Familiar2 Tipo de archivo no admitido';
+                   echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
                 }else{
                     if($_FILES[$tipo_imagen]["size"] > 33000003008000)
                     return;
@@ -123,7 +126,7 @@ class ClaseKerkly {
                 $file_name = $token.'.'.$extension;
                 $add = $targetDir.$file_name;
             
-                $db_url_img = "http://localhost/keklywebv2/archivosCargados/$file_name";
+                $db_url_img = "http://localhost/KERWEB/archivosCargados/$file_name";
 
             //manipulando para guardar archivos referencia de trabajo 2
                 
@@ -135,7 +138,10 @@ class ClaseKerkly {
             $ext_formatos2 = array('png','gif','jpg','jpeg','pdf');
 
             if(!in_array(strtolower($extension2),$ext_formatos2)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                     
             if($_FILES[$tipo_imagen2]["size"] > 33000003008000)
@@ -149,7 +155,7 @@ class ClaseKerkly {
             $file_name2 = $token2.'.'.$extension2;
             $add2 = $targetDir2.$file_name2;
         
-            $db_url_img2 = "http://localhost/keklywebv2/archivosCargados/$file_name2";
+            $db_url_img2 = "http://localhost/KERWEB/archivosCargados/$file_name2";
             }
         // fin 002
         
@@ -161,7 +167,10 @@ class ClaseKerkly {
             $ext_formatos3 = array('png','gif','jpg','jpeg','pdf');
            
             if(!in_array(strtolower($extension3),$ext_formatos3)){
-                echo 'Referencia Familiar Tipo de archivo no admitido';
+                //echo 'Referencia Familiar Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                 if($_FILES[$tipo_imagen3]["size"] > 33000003008000)
                 return;
@@ -174,7 +183,7 @@ class ClaseKerkly {
             $token3 = md5(uniqid(rand(), true));
             $file_name3 = $token3.'.'.$extension2;
             $add3 = $targetDir3.$file_name3;
-            $db_url_img3 = "http://localhost/keklywebv2/archivosCargados/$file_name3";
+            $db_url_img3 = "http://localhost/KERWEB/archivosCargados/$file_name3";
         // fin referencia familiar
             }
             
@@ -187,7 +196,10 @@ class ClaseKerkly {
             $ext_formatos4 = array('png','gif','jpg','jpeg','pdf');
             
             if(!in_array(strtolower($extension4),$ext_formatos4)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }{
                 if($_FILES[$tipo_imagen4]["size"] > 33000003008000)
                 return;
@@ -200,7 +212,7 @@ class ClaseKerkly {
             $file_name4 = $token4.'.'.$extension4;
             $add4 = $targetDir4.$file_name4;
         
-            $db_url_img4 = "http://localhost/keklywebv2/archivosCargados/$file_name4";
+            $db_url_img4 = "http://localhost/KERWEB/archivosCargados/$file_name4";
             }
             
         // fin subir archivos 4
@@ -213,7 +225,10 @@ class ClaseKerkly {
             $ext_formatos5 = array('png','gif','jpg','jpeg','pdf');
             
             if(!in_array(strtolower($extension5),$ext_formatos5)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }{
                 if($_FILES[$tipo_imagen5]["size"] > 33000003008000)
                 return;
@@ -226,7 +241,7 @@ class ClaseKerkly {
             $file_name5 = $token5.'.'.$extension5;
             $add5 = $targetDir5.$file_name5;
 
-            $db_url_img5 = "http://localhost/keklywebv2/archivosCargados/$file_name5";
+            $db_url_img5 = "http://localhost/KERWEB/archivosCargados/$file_name5";
             }
             
         //fin subir archivos 5
@@ -239,7 +254,10 @@ class ClaseKerkly {
             $ext_formatos6 = array('png','gif','jpg','jpeg','pdf');
             
             if(!in_array(strtolower($extension6),$ext_formatos6)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                  if($_FILES[$tipo_imagen6]["size"] > 33000003008000)
                 return;
@@ -252,7 +270,7 @@ class ClaseKerkly {
             $file_name6 = $token6.'.'.$extension6;
             $add6 = $targetDir6.$file_name6;
             //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
-            $db_url_img6 = "http://localhost/keklywebv2/archivosCargados/$file_name6";
+            $db_url_img6 = "http://localhost/KERWEB/archivosCargados/$file_name6";
         //fin subir archivos 6
             }
            
@@ -265,7 +283,10 @@ class ClaseKerkly {
             $ext_formatos7 = array('png','gif','jpg','jpeg','pdf');
 
             if(!in_array(strtolower($extension7),$ext_formatos7)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                  if($_FILES[$tipo_imagen7]["size"] > 33000003008000)
                 return;
@@ -278,7 +299,7 @@ class ClaseKerkly {
             $file_name7 = $token7.'.'.$extension7;
             $add7 = $targetDir7.$file_name7;
     
-            $db_url_img7 = "http://localhost/keklywebv2/archivosCargados/$file_name7";
+            $db_url_img7 = "http://localhost/KERWEB/archivosCargados/$file_name7";
             }
            
         //fin subir archivos 7
@@ -291,7 +312,10 @@ class ClaseKerkly {
             $ext_formatos8 = array('png','gif','jpg','jpeg','pdf');
 
             if(!in_array(strtolower($extension8),$ext_formatos8)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                  if($_FILES[$tipo_imagen8]["size"] > 33000003008000)
                 return;
@@ -304,7 +328,7 @@ class ClaseKerkly {
             $file_name8 = $token8.'.'.$extension8;
             $add8 = $targetDir8.$file_name8;
             //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
-            $db_url_img8 = "http://localhost/keklywebv2/archivosCargados/$file_name8";
+            $db_url_img8 = "http://localhost/KERWEB/archivosCargados/$file_name8";
             }
            
         //fin subir archivos 8
@@ -316,7 +340,10 @@ class ClaseKerkly {
             $ext_formatos9 = array('png','gif','jpg','jpeg','pdf');
 
             if(!in_array(strtolower($extension9),$ext_formatos9)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                 if($_FILES[$tipo_imagen9]["size"] > 33000003008000)
                 return;
@@ -329,7 +356,7 @@ class ClaseKerkly {
             $file_name9 = $token9.'.'.$extension9;
             $add9 = $targetDir9.$file_name9;
             //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
-            $db_url_img9 = "http://localhost/keklywebv2/archivosCargados/$file_name9";
+            $db_url_img9 = "http://localhost/KERWEB/archivosCargados/$file_name9";
         //fin subir archivos 9
             }
             
@@ -341,7 +368,10 @@ class ClaseKerkly {
             $ext_formatos10 = array('png','gif','jpg','jpeg','pdf');
            
             if(!in_array(strtolower($extension10),$ext_formatos10)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                 if($_FILES[$tipo_imagen10]["size"] > 33000003008000)
                 return;
@@ -354,7 +384,7 @@ class ClaseKerkly {
             $file_name10 = $token10.'.'.$extension10;
             $add10 = $targetDir10.$file_name10;
             //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
-            $db_url_img10 = "http://localhost/keklywebv2/archivosCargados/$file_name10";
+            $db_url_img10 = "http://localhost/KERWEB/archivosCargados/$file_name10";
         //fin subir archivos 10
             }
             
@@ -366,7 +396,10 @@ class ClaseKerkly {
             $ext_formatos11 = array('png','gif','jpg','jpeg','pdf');
             
             if(!in_array(strtolower($extension11),$ext_formatos11)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                  if($_FILES[$tipo_imagen11]["size"] > 33000003008000)
                 return;
@@ -379,7 +412,7 @@ class ClaseKerkly {
             $file_name11 = $token11.'.'.$extension11;
             $add11 = $targetDir11.$file_name11;
             //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
-            $db_url_img11 = "http://localhost/keklywebv2/archivosCargados/$file_name11";
+            $db_url_img11 = "http://localhost/KERWEB/archivosCargados/$file_name11";
             }
         //fin subir archivos 11
 
@@ -390,7 +423,10 @@ class ClaseKerkly {
             $ext_formatos12 = array('png','gif','jpg','jpeg','pdf');
             
             if(!in_array(strtolower($extension12),$ext_formatos12)){
-                echo ' Tipo de archivo no admitido';
+                //echo ' Tipo de archivo no admitido';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                 if($_FILES[$tipo_imagen12]["size"] > 33000003008000)
                 return;
@@ -403,7 +439,7 @@ class ClaseKerkly {
             $file_name12 = $token12.'.'.$extension12;
             $add12 = $targetDir12.$file_name12;
             //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
-            $db_url_img12 = "http://localhost/keklywebv2/archivosCargados/$file_name12";
+            $db_url_img12 = "http://localhost/KERWEB/archivosCargados/$file_name12";
             }
             
         //fin subir archivos 12
@@ -416,7 +452,10 @@ class ClaseKerkly {
             $ext_formatos13 = array('png','gif','jpg','jpeg','pdf');
 
             if(!in_array(strtolower($extension13),$ext_formatos13)){
-                echo ' Tipo de archivo no admitido';
+                //echo 'Tipo de archivo no admitido ';
+                echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
             }else{
                 if($_FILES[$tipo_imagen13]["size"] > 33000003008000)
                 return;
@@ -431,11 +470,11 @@ class ClaseKerkly {
             $add13 = $targetDir13.$file_name13;
             //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
 
-            $db_url_img13 = "http://localhost/keklywebv2/archivosCargados/$file_name13";
+            $db_url_img13 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name13";
             }
             
 
-            $db_url_img13 = "http://localhost/KERWEB/archivosCargados/$file_name13";
+            $db_url_img13 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name13";
 
         //fin subir archivos 13
        
@@ -459,15 +498,21 @@ class ClaseKerkly {
                     //echo "$idOficio,$oficio,$Curp";
 
                     if($ResultadoOficio2==1){
-                        echo "jalo";
-                        echo "<script>
+                        //echo "jalo";
+                        /*echo "<script>
                         alert('Usuario insertado exitosamente');
                         location.assign('RegistroKERKLY.php');
+                        </script>";*/
+                        echo "<script>
+                        location.assign('usuarioAgregado.html');
                         </script>";
                    
                     }else{
-                        echo "no jalo";
+                        /*echo "no jalo";*/
                         echo '¡Error 470!' .$insertar.mysqli_error($con);
+                        echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
                     }
                     /*echo "<script>
                         alert('Usuario insertado exitosamente');
@@ -478,6 +523,9 @@ class ClaseKerkly {
                     //echo 'listo';
                 }else{
                     echo '¡Error!' .$insertar.mysqli_error($con);
+                    echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";
          
                 }
             

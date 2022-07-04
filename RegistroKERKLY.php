@@ -16,9 +16,9 @@
         <div id="brand">KERKLY</div>
         <nav>
             <ul>
-                <li><a href="inicio.html">Inicio</a></li>
-                <li><a href="index.html" id="Registro">Registro</a></li>
-                <li><a href="/about">Nosotros</a></li>
+                <li><a href="RegistroKERKLY.php">Inicio</a></li>
+                <li><a href="RegistroKERKLY.php" id="Registro">Registro</a></li>
+                <li><a href="RegistroKERKLY.php">Nosotros</a></li>
                 <!--<li id="login"><a href="/login">Login</a></li>-->
                 <!--<li id="signup"><a href="/signup">Signup</a></li>-->
             </ul>
@@ -31,11 +31,11 @@
             <div class="bar3"></div>
             <ul class="mobile-menu">
                 <hr id="linea">
-                <li><a href="index.html">Informacion Personal</a></li>
-                <li><a href="InfoDom.html">Informacion Domicilio</a></li>
-                <li><a href="Oficios.html">Oficio</a></li>
-                <li><a href="documentosEscaneados.html">Documentos Escaneados</a></li>
-                <li><a href="creacionCuenta.html">Creacion de la cuenta</a></li>
+                <li><a href="RegistroKERKLY.php">Informacion Personal</a></li>
+                <li><a href="RegistroKERKLY.php">Informacion Domicilio</a></li>
+                <li><a href="RegistroKERKLY.php">Oficio</a></li>
+                <li><a href="RegistroKERKLY.php">Documentos Escaneados</a></li>
+                <li><a href="RegistroKERKLY.php">Creacion de la cuenta</a></li>
                 <!-- <li id="login"><a href="/login">Login</a></li>-->
                 <!-- <li id="signup"><a href="/signup">Signup</a></li>-->
                 <hr id="linea">
@@ -247,10 +247,10 @@
         <fieldset id="Formulario3">
             <nav id="form">
                 <!-- Text input -->
-                <div class="form-outline mb-3">
+                <!--<div class="form-outline mb-3">
                     <input type="text" id="NoOficio" name="NoOficio" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Numero de oficio</label> <label for="form1" id="campoO">*</label>
-                </div>
+                </div>-->
                 <!--<div class="form-outline mb-3">
                     <input type="text" id="Oficio" name="oficio" class="form-control" placeholder="---" />
                     <label class="form-label" for="form1">Oficio</label> <label for="form1" id="campoO">*</label>
@@ -300,6 +300,7 @@
                             </svg></span>
                         <!-- Text input -->
                         <!--<span id="refTrabajo1" name="RefTrabajo1" class="css-button-text">Cargar Archivo</span>-->
+                        <span id="ine" class="css-button-text">Cargar Archivo</span>
                         <input type="file" name="ReferenciaTrabajo1" id="ReferenciaTrabajo1">
                     </a>
                 </div>
