@@ -1,0 +1,190 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+nav{
+    background: #ffffff;
+    height: 80px;
+    width: 100%;
+}
+.enlace{
+    position: absolute;
+    padding: 20px 50px;
+}
+.logo{
+    height: 50px;
+    padding: 0px 13px 5px 0px;
+  
+}
+
+/* INICIO MENU ARRIBA*/
+.menu {
+    display: flex;
+    /*justify-content: center;*/
+    float: right;
+    margin-right: 20px;
+    padding: 2px 10px 0px 0px;
+
+    
+}
+  
+.menu li {
+    display: inline-block;
+    line-height: 80px;
+    
+    /*margin-right: 70px;*/
+}
+  
+.menu a {
+    position: relative;
+    display: block;
+    padding: 0px 5px 0px 10px;
+    font-family: 'Source Sans Pro', 'Open Sans', Roboto, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Myriad Pro', 'Segoe UI', Myriad, Helvetica, 'Lucida Grande', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, Arial, sans-serif;
+    font-size: 22px;
+    color: #205f5f;
+}
+  
+.menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #09736a, #1ac0a7, #00ffe1);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+  
+.menu a:hover::before {
+    transform: scaleX(1);
+    
+}
+.menu[data-animation="bonus"] a::before {
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+}
+   
+.menu[data-animation="bonus"] a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.82, 0.94);
+}
+
+a.active{
+    color: rgb(0, 255, 183);
+    -webkit-text-stroke:0.5px black;
+    text-decoration:  overline rgb(16, 93, 108);
+}
+ 
+
+
+/* IFIN MENU ARRIBA*/
+.checkbtn{
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+.intro{
+   /* background: url(fondo.jpg) no-repeat;*/
+    background: linear-gradient(#14b499,#2A5E6B);
+    background-size: cover;
+    background-position: center center;
+    height: calc(100vh - 80px);
+    text-align: center;
+    padding-top: calc(30vh - 20pt);
+    font-weight: 700;
+    font-size: 400%;
+    line-height: 1;
+    font-family: 'Source Sans Pro', 'Open Sans', Roboto, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Myriad Pro', 'Segoe UI', Myriad, Helvetica, 'Lucida Grande', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, Arial, sans-serif;
+   
+}
+/*#section-header h1{
+    color: #2bffdc;
+    -webkit-text-stroke: 1px rgb(96, 113, 113);
+
+}
+#section-header h2{
+    color: #1fe1c0;
+    font-size: 25px;
+    text-align: center;
+}*/
+.intro h1{
+    color: #2bffdc;
+    -webkit-text-stroke: 1px rgb(96, 113, 113);
+
+}
+.intro h2{
+    color: #1fe1c0;
+    font-size: 25px;
+    text-align: center;
+}
+.logo-kerkly{
+    height: 180px;
+}
+
+.quienSomos{
+    width: 70%;
+    background-size: cover;
+}
+#aniamcion1 h1,p{
+    align-content: center;
+    margin: 15px;
+   
+
+}
+
+@media (max-width: 952px){
+    .enlace{
+        padding-left: 20px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    li a:hover, li a.active{
+        background: none;
+        color: rgb(255, 255, 255);
+    }
+    #check:checked ~ ul{
+        left:0;
+    }
+}

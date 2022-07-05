@@ -550,6 +550,17 @@ footer {
   background-color: #2A5E6B;
 }
 
+#botonMostrarContraseña{
+  background: #2A5E6B;
+  color: rgb(5, 255, 193);
+  border-color: #3d6f5c;
+}
+#botonMostrarContraseña:hover{
+  background: linear-gradient(190deg, #4da48a 2%, #2A5E6B 100%);
+  color: rgb(32, 230, 174);
+  border-color: #2a5e6b6f;
+}
+
 
 /* INICIO ACOMODO DE VECTOR.SVG EN SELECT OFICIOS*/
 

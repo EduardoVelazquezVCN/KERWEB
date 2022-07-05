@@ -16,7 +16,7 @@
         <div id="brand">KERKLY</div>
         <nav>
             <ul>
-                <li><a href="RegistroKERKLY.php">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="RegistroKERKLY.php" id="Registro">Registro</a></li>
                 <li><a href="RegistroKERKLY.php">Nosotros</a></li>
                 <!--<li id="login"><a href="/login">Login</a></li>-->
@@ -625,8 +625,30 @@
                     <path fill-rule="evenodd"
                         d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
                         clip-rule="evenodd" />
-                </svg>-->
+                    </svg>-->
                 </div>
+
+                <!--mostrar contraseña-->
+                    
+                <script>
+                    function mostrarContrasena(){
+                        var tipo = document.getElementById('contrasena');
+                            if(tipo.type == "password"){
+                                tipo.type = "text";
+                            }else{
+                                tipo.type = "password";
+                        }
+                        var tipo = document.getElementById('contrasenaConfirm');
+                            if(tipo.type == "password"){
+                                tipo.type = "text";
+                            }else{
+                                tipo.type = "password";
+                        }
+                    }
+                   
+                </script>
+                    <button  id="botonMostrarContraseña" type="button" onclick="mostrarContrasena()">Mostrar Contraseña</button>
+                    
 
                 <div>
                     <h1 id="camposO">* Campos obligatorios</h1>

@@ -621,10 +621,20 @@ function check5() {
     console.log('Las contraseñas coinciden');
     document.getElementById('mostrarLetrero').style.display = 'block';
     document.getElementById('botonGuardarFinal').style.display = 'block';
+    
   }
   else {
     /*ocultarFommulario5();*/
     console.log('Rectifica las contraseñas');
+    Swal.fire({
+      title: 'Las contraseñas no coinciden, Verificalo',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
 
   }
 }
