@@ -458,7 +458,27 @@ class ClaseKerkly {
                 VALUES ('$Nombre','$ApellidoP','$ApellidoM','$Curp','$FechaN','$genero','$Nacionalidad','$EstadoC','$email','$Telefonofijo','$TelefonoMovil','$Municipio','$idDireccion','$telNegocio','$db_url_img','$db_url_img2','$db_url_img3','$db_url_img4','$db_url_img5','$db_url_img6','$db_url_img7','$db_url_img8','$db_url_img9','$db_url_img10','$db_url_img11','$db_url_img12','$db_url_img13', '$hash')";
 
                 if(mysqli_query($con,$insertar)){
-                    $sqlInsertOficio="INSERT INTO oficio_kerkly (idoficio_trabajador,id_oficioK,id_kerklyK) VALUES ('24','$idOficio','$Curp')";
+                    // esto es nuevo INICIO
+                    $sqlConsultaNoOficios = "SELECT * FROM oficio_kerkly";
+                    $resultadoNoOficios = mysqli_query($con, $sqlConsultaNoOficios);
+                    $ArrayOficios = array();
+                    $numerito = 0;
+                    if(isset($resultadoNoOficios)){
+                        while($fila2 = mysqli_fetch_array($resultadoNoOficios, MYSQLI_ASSOC)){
+                            $ArrayOficios[] = $fila2;
+                            
+                        }
+                        $numerito = count($ArrayOficios) + 3;
+                        /*echo count($ArrayOficios);
+                        echo "<script>
+                        console.log(count($ArrayOficios));
+                        </script>";*/
+                    }else{
+                        echo 'Error';
+                    }
+                    // esto es nuevo FIN
+
+                    $sqlInsertOficio="INSERT INTO oficio_kerkly (idoficio_trabajador,id_oficioK,id_kerklyK) VALUES ('$numerito','$idOficio','$Curp')";
                     $ResultadoOficio2  = mysqli_query($con, $sqlInsertOficio);
                     if($ResultadoOficio2==1){
                         echo "<script>
