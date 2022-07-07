@@ -9,6 +9,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="estilosWeb.css">
     <title>LOGIN KERKLY</title>
+    <link rel="icon" href="img/icon-pestana}.png">
 </head>
 
 <body>
