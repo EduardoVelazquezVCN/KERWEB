@@ -1,7 +1,7 @@
-function validar() {
-  if (nombre.value == "") {
+function validarbrigada() {
+  if (brigada.value == "Brigada0") {
     Swal.fire({
-      title: 'Llena todos los campos para continuar',
+      title: 'El campo brigada es obligatorio',
       showClass: {
         popup: 'animate__animated animate__fadeInDown'
       },
@@ -10,128 +10,7 @@ function validar() {
       }
     })
     return false;
-  }
-  else if (APaterno.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
-  else if (AMaterno.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
-  else if (Curp.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
-  else if (FechaN.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
-  else if (Genero.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
-  else if (Nacionalidad.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
-  else if (ECivil.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
-
-  else if (CElectronico.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
-  else if (Tfijo.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
-  else if (Tmovil.value == "") {
-    Swal.fire({
-      title: 'Llena todos los campos para continuar',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    return false;
-  }
+  } 
 }
 
 
@@ -152,19 +31,19 @@ function ocultarFommulario1() {
 
 function check() {
 
-  if (validar() == false) {
-    validar();
-    console.log('estoy aqui 1');
+  if (validarbrigada() == false) {
+    validarbrigada();
+    console.log('estoy aqui 1 brigada');
   } else {
     ocultarFommulario1();
-    console.log('estoy aca 1');
+    console.log('estoy aca 2 brigada');
   }
 }
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 /* validacion infomrmacion domicilio*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-function validarInfoDomicilio() {
+/*function validarInfoDomicilio() {
   if (estado.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
@@ -261,7 +140,7 @@ function validarInfoDomicilio() {
     })
     return false;
   }
-}
+}*/
 /*block el formulario siguiente*/
 function ocultarFommulario2() {
   document.getElementById('Formulario1').style.display = 'none';
@@ -277,16 +156,17 @@ function ocultarFommulario2() {
 }
 
 function check2() {
-  if (validarInfoDomicilio() == false) {
+  /*if (validarInfoDomicilio() == false) {
     validarInfoDomicilio();
     console.log('estoy aqui 2');
   } else {
     ocultarFommulario2();
     console.log('estoy aca 2');
-  }
+  }*/
+  ocultarFommulario2();
 }
 
-function volver1(){
+/*function volver1(){
   document.getElementById('Formulario1').style.display = 'block';
   document.getElementById('Formulario2').style.display = 'none';
   document.getElementById('Formulario3').style.display = 'none';
@@ -297,17 +177,17 @@ function volver1(){
   document.getElementById('form4').style.display = 'none';
   document.getElementById('form5').style.display = 'none';
   document.getElementById('form6').style.display = 'none';
-}
+}*/
 
-function volverFormulario1(){
+/*function volverFormulario1(){
   //volver1();
   console.log("estoy aqui regresando");
-}
+}*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 /* validacion info oficios */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-function validarOficios() {
-  /*if (NoOficio.value == "") {
+/*function validarOficios() {
+  if (NoOficio.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
       showClass: {
@@ -319,7 +199,7 @@ function validarOficios() {
     })
     return false;
   }
-  else*/ if (oficios.value == "") {
+  else if (oficios.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
       showClass: {
@@ -379,7 +259,7 @@ function validarOficios() {
     })
     return false;
   }
-}
+}*/
 /*block el formulario siguiente*/
 function ocultarFommulario3() {
   document.getElementById('Formulario1').style.display = 'none';
@@ -396,13 +276,14 @@ function ocultarFommulario3() {
 }
 
 function check3() {
-  if (validarOficios() == false) {
+  /*if (validarOficios() == false) {
     validarOficios();
     console.log('estoy aqui oficios');
   } else {
     ocultarFommulario3();
     console.log('estoy aca oficios');
-  }
+  }*/
+  ocultarFommulario3();
 }
 
 /*function check3(){
@@ -417,7 +298,7 @@ function check3() {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 /* validacion documentos escaneados */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-function validarDocumentosEscaneados() {
+/*function validarDocumentosEscaneados() {
   if (foto.value == "") {
     Swal.fire({
       title: 'Llena todos los campos para continuar',
@@ -539,7 +420,7 @@ function validarDocumentosEscaneados() {
     return false;
   }
 
-}
+}*/
 /*block el formulario siguiente*/
 function ocultarFommulario4() {
   document.getElementById('Formulario1').style.display = 'none';
@@ -555,13 +436,14 @@ function ocultarFommulario4() {
 }
 
 function check4() {
-  if (validarDocumentosEscaneados() == false) {
+ /* if (validarDocumentosEscaneados() == false) {
     validarDocumentosEscaneados();
     console.log('estoy aqui 4');
   } else {
     ocultarFommulario4();
     console.log('estoy aca 4');
-  }
+  }*/
+  ocultarFommulario4();
 }
 
 

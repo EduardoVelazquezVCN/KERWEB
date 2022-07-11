@@ -56,7 +56,7 @@
     </div>
 
 
-    <!-- visible en movil -->
+    <!-- visible en movil 
     <div id="TituloO">
         <section class="curved">
             <nav id="titulo-form-centrar">
@@ -64,7 +64,7 @@
             </nav>
 
         </section>
-    </div>
+    </div>-->
 
     <form data-toggle="validator" action="Registrar.php" method="POST" enctype="multipart/form-data">
 
@@ -75,30 +75,52 @@
                 <!-- Text input -->
                 <script src="validarSoloTexto.js"></script>
                 <div class="form-outline mb-3">
+                    <select name="selectBrigada[]" id="brigada" class="form-control">
+                        <option value="Brigada0" selected>Seleccione</option>
+                        <option value="Brigada1">Brigada 1</option>
+                        <option value="Brigada2">Brigada 2</option>
+                        <option value="Brigada3">Brigada 3</option>
+                        <option value="Brigada4">Brigada 4</option>
+                        <option value="Brigada5">Brigada 5</option>
+                        <option value="Brigada6">Brigada 6</option>
+                        <option value="Brigada7">Brigada 7</option>
+                        <option value="Brigada8">Brigada 8</option>
+                        <option value="Brigada9">Brigada 9</option>
+                        <option value="Brigada10">Brigada 10</option>
+                        <option value="Brigada11">Brigada 11</option>
+                        <option value="Brigada12">Brigada 12</option>
+                        <option value="Brigada13">Brigada 13</option>
+                        <option value="Brigada14">Brigada 14</option>
+                        <option value="Brigada15">Brigada 15</option>
+                        <option value="Brigada16">Brigada 16</option>
+                    </select>
+                    <label class="form-label" for="form1">Brigada</label> <label for="form1" id="campoO">*</label>
+                </div>
+                <div class="form-outline mb-3">
                     <input type="text" id="nombre" name="Nombre" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Nombre(s)</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Nombre(s)</label> <!-- <label for="form1" id="campoO">*</label> -->
                     <pre id="resultadoTexto"></pre>
                 </div>
                 <div class="form-outline mb-3">
                     <input type="text" id="APaterno" name="ApellidoP" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Apellido Paterno</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Apellido Paterno</label>  <!-- <label for="form1" id="campoO">*</label> -->
                 </div>
                 <div class="form-outline mb-3">
                     <input type="text" id="AMaterno" name="ApellidoM" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Apellido Materno</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Apellido Materno</label> <!--<label for="form1" id="campoO">*</label>   -->
                 </div>
                 <!-- Text input -->
                 <script src="limitacionCurp.js"></script>
                 <link rel="stylesheet" href="estiloLimitacionDatos.css">
                 <div class="form-outline mb-3">
                     <input type="text" id="Curp" name="Curp" oninput="validarInput(this)" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">CURP</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">CURP</label>  <!-- <label for="form1" id="campoO">*</label> -->
                     <pre id="resultado"></pre>
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-3">
                     <input type="date" id="FechaN" name="FechaN" class="form-control" />
-                    <label class="form-label" for="form1">Fecha de Nacimiento</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Fecha de Nacimiento</label> <!-- <label for="form1" id="campoO">*</label> -->
                 </div>
                 <!-- Number input -->
                 <div class="form-outline mb-3">
@@ -107,12 +129,12 @@
                         <option value="Femenino">Femenino</option>
                         <option value="Otro">Otro</option>
                     </select>
-                    <label class="form-label" for="form1">Genero</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Genero</label>  <!-- <label for="form1" id="campoO">*</label> -->
                 </div>
                 <!-- Message input -->
                 <div class="form-outline mb-3">
                     <input type="text" name="Nacionalidad" id="Nacionalidad" autocapitalize="words" oninput="validarTextoEntrada(this, '[a-záéíóúñ ]')" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Nacionalidad</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Nacionalidad</label>  <!-- <label for="form1" id="campoO">*</label> -->
                 </div>
                 <!-- Number input -->
                 <div class="form-outline mb-3">
@@ -121,24 +143,24 @@
                         <option value="casado">Casado</option>
                         <option value="otro">Otro</option>
                     </select>
-                    <label class="form-label" for="form1">Estado Civil</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Estado Civil</label> <!-- <label for="form1" id="campoO">*</label> -->
                 </div>
                 <!-- Email input -->
                 <script src="validarEmail.js"></script>
                 <div class="form-outline mb-3">
                     <input type="text" name="email" id="CElectronico" class="form-control" placeholder="EmpleadoId@kerkly.com" />
-                    <label class="form-label" for="form1">Correo Electronico</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Correo Electronico</label>  <!-- <label for="form1" id="campoO">*</label> -->
                     <span id="emailOK"></span>
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-3">
                     <input type="number" name="Telefonofijo" id="Tfijo" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" placeholder="747-47-1-68-92" />
-                    <label class="form-label" for="form1">Teléfono fijo</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Teléfono fijo</label>  <!-- <label for="form1" id="campoO">*</label> -->
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-3">
                     <input type="number" name="TelefonoMovil" id="Tmovil" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" placeholder="74-71-25-85-96" />
-                    <label class="form-label" for="form1">Teléfono movil</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Teléfono movil</label>  <!-- <label for="form1" id="campoO">*</label> -->
                 </div>
                 <div>
                     <h1 id="camposO">* Campos obligatorios</h1>
@@ -160,9 +182,9 @@
         <!-- OCULTAR FORMULARIO 1  -->
         <nav id="form2">
             <!-- Ocultamos el formulario al dar en siguiente -->
-            <script src="ocultarForm.js"></script>
+            <!--<script src="ocultarForm.js"></script>-->
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script src="validar.js"></script>
+            <!--<script src="validar.js"></script>-->
             <script src="ocultarValidar.js"></script>
             <div id="botondiv">
                 <button type="button" id="botonGuardar" onclick="check();">Siguiente</button>
@@ -179,35 +201,34 @@
                 <script src="validarSoloTexto.js"></script>
                 <div class="form-outline mb-3">
                     <input type="text" id="estado" name="Estado" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Estado</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Estado</label>  <!--<label for="form1" id="campoO">*</label>  -->
                 </div>
                 <div class="form-outline mb-3">
                     <input type="text" id="municipio" name="Municipio" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Municipio</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Municipio</label> <!--<label for="form1" id="campoO">*</label>  -->
                 </div>
                 <div class="form-outline mb-3">
                     <input type="text" id="localidad" name="Localidad" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Localidad</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Localidad</label> <!--<label for="form1" id="campoO">*</label>  -->
                 </div>
                 <!-- Text input -->
                 <div class="form-outline mb-3">
                     <input type="text" id="codigoP" name="codigoP" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Código postal</label> <label for="form1" id="campoO">*</label>
-                </div>
+                    <label class="form-label" for="form1">Código postal</label> <!--<label for="form1" id="campoO">*</label>  -->
                 <!-- Text input -->
                 <div class="form-outline mb-3">
                     <input type="text" id="colonia" name="Colonia" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Colonia</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Colonia</label> <!--<label for="form1" id="campoO">*</label>  -->
                 </div>
                 <!-- Text input -->
                 <div class="form-outline mb-3">
                     <input type="text" id="calle" name="calle" class="form-control" placeholder="---" />
-                    <label class="form-label" for="form1">Calle</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Calle</label> <!--<label for="form1" id="campoO">*</label>  -->
                 </div>
                 <!-- Text input -->
                 <div class="form-outline mb-3">
                     <input type="number" id="NoExt" name="NoExt" maxlength="3" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control" placeholder="232" />
-                    <label class="form-label" for="form1">Número exterior</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Número exterior</label> <!--<label for="form1" id="campoO">*</label>  -->
                 </div>
                 <!-- Text input -->
                 <div class="form-outline mb-3">
@@ -270,7 +291,7 @@
                             <?php endforeach?>
                         </select>
                          Seleccione oficio: 
-                    </label><label for="form1" id="campoO">*</label>
+                    </label><!--<label for="form1" id="campoO">*</label>  -->
 
                     
                 </div>
@@ -611,7 +632,7 @@
                 <!-- Text input -->
                 <div class="form-outline mb-3">
                     <input type="password" id="contrasena" class="form-control" placeholder="Password" name="Contrasena"/>
-                    <label class="form-label" for="form1">Crear contraseña</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Crear contraseña</label> <!--<label for="form1" id="campoO">*</label>  -->
                 </div>
 
 
@@ -619,7 +640,7 @@
                 <!-- Icons by https://heroicons.com/ -->
                 <div class="form-outline mb-3">
                     <input type="password" id="contrasenaConfirm" class="form-control" placeholder="Password" data-lpignore="true" name="Contrasena">
-                    <label class="form-label" for="form1">Confirmar contraseña</label> <label for="form1" id="campoO">*</label>
+                    <label class="form-label" for="form1">Confirmar contraseña</label> <!--<label for="form1" id="campoO">*</label>  -->
                     <!--<svg xmlns="http://www.w3.org/2000/svg" class="input-icon password" viewBox="0 0 20 20"
                     fill="currentColor">
                     <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
@@ -673,7 +694,7 @@
         </nav>
 
         <div id="botondiv">
-            <h1 id="mostrarLetrero">Listo para mandar el formulario</h1>
+            <h1 id="mostrarLetrero">Listo para guardar el registro:      </h1>
             <br>
             <br>
             <input type="submit" value="Guardar" id="botonGuardarFinal">

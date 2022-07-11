@@ -6,6 +6,8 @@ class ClaseKerkly {
 
     public function Registrarkerkly1($kerklys, $tipo_imagen , $tipo_imagen2  , $tipo_imagen3 , $tipo_imagen4 , $tipo_imagen5 , $tipo_imagen6,  $tipo_imagen7 , $tipo_imagen8 ,$tipo_imagen9 , $tipo_imagen10 , $tipo_imagen11 ,$tipo_imagen12,$tipo_imagen13, $Contrasena1){
         include_once 'conexionDB.php';
+        $selectBrigada  = $kerklys['selectBrigada'];
+        $Brigada="";
         $Nombre = $kerklys['Nombre'];
         $ApellidoP  = $kerklys['ApellidoP'];
         $ApellidoM  = $kerklys['ApellidoM'];
@@ -19,6 +21,7 @@ class ClaseKerkly {
         $TelefonoMovil  = $kerklys['TelefonoMovil'];
         $genero="";
         $EstadoC="";
+        
         //seccion 2
         $Estado = $kerklys['Estado'];
         $Municipio = $kerklys['Municipio'];
@@ -34,13 +37,16 @@ class ClaseKerkly {
 
         for ($i=0;$i<count($selectGenero);$i++) { 
             $genero= $selectGenero[$i]; 
-            } 
-            for ($i=0;$i<count($selectEstadoCivil);$i++) { 
+        } 
+        for ($i=0;$i<count($selectEstadoCivil);$i++) { 
                 $EstadoC = $selectEstadoCivil[$i]; 
-            } 
-            for ($i=0;$i<count($selectOficios);$i++) { 
+        } 
+        for ($i=0;$i<count($selectOficios);$i++) { 
                 $oficio = $selectOficios[$i]; 
-            } 
+        } 
+        for ($i=0;$i<count($selectBrigada);$i++) { 
+            $Brigada= $selectBrigada[$i]; 
+        } 
 
              //NUEVO OFICIOS
         $consultaSelect = "SELECT idOficio from oficios where nombreO = '$oficio';";
@@ -51,23 +57,47 @@ class ClaseKerkly {
             $idOficio = $fila[0];
         }
 
-        if(empty($_FILES[$tipo_imagen]["name"]) || empty($_FILES[$tipo_imagen2]["name"])
+        /*if(empty($_FILES[$tipo_imagen]["name"]) || empty($_FILES[$tipo_imagen2]["name"])
         || empty($_FILES[$tipo_imagen3]["name"]) || empty($_FILES[$tipo_imagen4]["name"])
         || empty($_FILES[$tipo_imagen5]["name"]) || empty($_FILES[$tipo_imagen6]["name"])
         || empty($_FILES[$tipo_imagen7]["name"]) || empty($_FILES[$tipo_imagen8]["name"])
         || empty($_FILES[$tipo_imagen9]["name"]) || empty($_FILES[$tipo_imagen10]["name"])
         || empty($_FILES[$tipo_imagen11]["name"]) || empty($_FILES[$tipo_imagen12]["name"])){
            echo ' Archivos Faltantes';
-       }else{
+       }else{*/
+        $ejecutadoVacio = 1;
+        if($ejecutadoVacio == 1){ 
                 $file_name = $_FILES[$tipo_imagen]["name"];
                 $extension = pathinfo($_FILES[$tipo_imagen]["name"],PATHINFO_EXTENSION);
                 $ext_formatos = array('png','gif','jpg','jpeg','pdf');
                 
                 if(!in_array(strtolower($extension),$ext_formatos)){
                    // echo 'Referencia Familiar2 Tipo de archivo no admitido';
-                   echo "<script>
+                   /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+
+                        if($_FILES[$tipo_imagen]["size"] > 33000003008000)
+                    return;
+
+                    $targetDir = "archivosCargados/$Curp/";
+                    @rmdir($targetDir);
+                    if (!file_exists($targetDir)){
+                        @mkdir($targetDir,077,true);
+                    }else{
+                        @mkdir($targetDir,077,true);
+                        $file_name = "";
+                        $Curp="";
+                        $targetDir="archivosCargados/$Curp";
+                    }
+               
+                    $token = md5(uniqid(rand(), true));
+                    $file_name = $token.'.'.$extension;
+                    $add = $targetDir.$file_name;
+            
+                    $db_url_img = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name";
+
+                    //manipulando para guardar archivos referencia de trabajo 2
                 }else{
                     if($_FILES[$tipo_imagen]["size"] > 33000003008000)
                     return;
@@ -94,9 +124,28 @@ class ClaseKerkly {
     
                 if(!in_array(strtolower($extension2),$ext_formatos2)){
                     //echo ' Tipo de archivo no admitido';
-                    echo "<script>
-                            location.assign('algopaso.html');
-                            </script>";
+                    /*echo "<script>
+                        location.assign('algopaso.html');
+                        </script>";*/
+                        if($_FILES[$tipo_imagen2]["size"] > 33000003008000)
+                    return;
+
+                    $targetDir2 = "archivosCargados/$Curp/";
+                    @rmdir($targetDir2);
+                    if (!file_exists($targetDir2)){
+                    @mkdir($targetDir2,077,true);
+                    }else{
+                        @mkdir($targetDir2,077,true);
+                        $file_name2 = "";
+                        $Curp="";
+                        $targetDir2="archivosCargados/$Curp";
+                    }
+                    $token2 = md5(uniqid(rand(), true));
+                    $file_name2 = $token2.'.'.$extension2;
+                    $add2 = $targetDir2.$file_name2;
+            
+                    $db_url_img2 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name2";
+                    // fin 002
                 }else{
                         
                     if($_FILES[$tipo_imagen2]["size"] > 33000003008000)
@@ -125,9 +174,27 @@ class ClaseKerkly {
            
             if(!in_array(strtolower($extension3),$ext_formatos3)){
                 //echo 'Referencia Familiar Tipo de archivo no admitido';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+                        if($_FILES[$tipo_imagen3]["size"] > 33000003008000)
+                        return;
+                       
+                        $targetDir3 ="archivosCargados/$Curp/";
+                        @rmdir($targetDir3);
+                        if (!file_exists($targetDir3)){
+                            @mkdir($targetDir3,077,true);
+                        }else{
+                            @mkdir($targetDir3,077,true);
+                            $file_name3 = "";
+                            $Curp="";
+                            $targetDir3="archivosCargados/$Curp";
+                        }
+                        $token3 = md5(uniqid(rand(), true));
+                        $file_name3 = $token3.'.'.$extension2;
+                        $add3 = $targetDir3.$file_name3;
+                        $db_url_img3 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name3";
+                        // fin referencia familiar
             }else{
                 if($_FILES[$tipo_imagen3]["size"] > 33000003008000)
                 return;
@@ -154,9 +221,27 @@ class ClaseKerkly {
             
             if(!in_array(strtolower($extension4),$ext_formatos4)){
                 //echo ' Tipo de archivo no admitido';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+                        if($_FILES[$tipo_imagen4]["size"] > 33000003008000)
+                    return;
+                $targetDir4 = "archivosCargados/$Curp/";
+                @rmdir($targetDir4);
+                if (!file_exists($targetDir4)){
+                 @mkdir($targetDir4,077,true);
+                }else{
+                    @mkdir($targetDir4,077,true);
+                    $file_name4 = "";
+                    $Curp="";
+                    $targetDir4="archivosCargados/$Curp";
+                }
+                $token4 = md5(uniqid(rand(), true));
+                $file_name4 = $token4.'.'.$extension4;
+                $add4 = $targetDir4.$file_name4;
+        
+                $db_url_img4 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name4";
+                // fin subir archivos 4
             }else{
                 if($_FILES[$tipo_imagen4]["size"] > 33000003008000)
                     return;
@@ -183,9 +268,28 @@ class ClaseKerkly {
             
             if(!in_array(strtolower($extension5),$ext_formatos5)){
                 //echo ' Tipo de archivo no admitido';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+
+                        if($_FILES[$tipo_imagen5]["size"] > 33000003008000)
+                        return;
+                        $targetDir5 = "archivosCargados/$Curp/";
+                        @rmdir($targetDir5);
+                        if (!file_exists($targetDir5)){
+                            @mkdir($targetDir5,077,true);
+                        }else{
+                            @mkdir($targetDir5,077,true);
+                            $file_name5 = "";
+                            $Curp="";
+                            $targetDir5="archivosCargados/$Curp";
+                        }
+                        $token5 = md5(uniqid(rand(), true));
+                        $file_name5 = $token5.'.'.$extension5;
+                        $add5 = $targetDir5.$file_name5;
+        
+                        $db_url_img5 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name5";
+                        //fin subir archivos 5
             }else{
                 if($_FILES[$tipo_imagen5]["size"] > 33000003008000)
                 return;
@@ -211,9 +315,28 @@ class ClaseKerkly {
             
             if(!in_array(strtolower($extension6),$ext_formatos6)){
                 //echo ' Tipo de archivo no admitido';
-                echo "<script>
+               /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+
+                        if($_FILES[$tipo_imagen6]["size"] > 33000003008000)
+                        return;
+                        $targetDir6 = "archivosCargados/$Curp/";
+                        @rmdir($targetDir6);
+                        if (!file_exists($targetDir6)){
+                            @mkdir($targetDir6,077,true);
+                        }else{
+                            @mkdir($targetDir6,077,true);
+                            $file_name6 = "";
+                            $Curp="";
+                            $targetDir6="archivosCargados/$Curp";
+                        }
+                        $token6 = md5(uniqid(rand(), true));
+                        $file_name6 = $token6.'.'.$extension6;
+                        $add6 = $targetDir6.$file_name6;
+                        //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
+                        $db_url_img6 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name6";
+                        //fin subir archivos 6
             }else{
                  if($_FILES[$tipo_imagen6]["size"] > 33000003008000)
                 return;
@@ -239,9 +362,29 @@ class ClaseKerkly {
 
             if(!in_array(strtolower($extension7),$ext_formatos7)){
                 //echo ' Tipo de archivo no admitido';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+
+                        if($_FILES[$tipo_imagen7]["size"] > 33000003008000)
+                        return;
+    
+                    $targetDir7 = "archivosCargados/$Curp/";
+                    @rmdir($targetDir7);
+                    if (!file_exists($targetDir7)){
+                        @mkdir($targetDir7,077,true);
+                    }else{
+                        @mkdir($targetDir7,077,true);
+                        $file_name7 = "";
+                        $Curp="";
+                        $targetDir7="archivosCargados/$Curp";
+                    }
+                    $token7 = md5(uniqid(rand(), true));
+                    $file_name7 = $token7.'.'.$extension7;
+                    $add7 = $targetDir7.$file_name7;
+        
+                    $db_url_img7 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name7";
+                    //fin subir archivos 7
             }else{
                  if($_FILES[$tipo_imagen7]["size"] > 33000003008000)
                     return;
@@ -268,9 +411,28 @@ class ClaseKerkly {
 
             if(!in_array(strtolower($extension8),$ext_formatos8)){
                 //echo ' Tipo de archivo no admitido';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+
+                        if($_FILES[$tipo_imagen8]["size"] > 33000003008000)
+                    return;
+                $targetDir8 = "archivosCargados/$Curp/";
+                @rmdir($targetDir8);
+                if (!file_exists($targetDir8)){
+                    @mkdir($targetDir8,077,true);
+                }else{
+                    @mkdir($targetDir8,077,true);
+                    $file_name8 = "";
+                    $Curp="";
+                    $targetDir8="archivosCargados/$Curp";
+                }
+                $token8 = md5(uniqid(rand(), true));
+                $file_name8 = $token8.'.'.$extension8;
+                $add8 = $targetDir8.$file_name8;
+                //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
+                $db_url_img8 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name8";
+                //fin subir archivos 8
             }else{
                  if($_FILES[$tipo_imagen8]["size"] > 33000003008000)
                     return;
@@ -295,9 +457,29 @@ class ClaseKerkly {
 
             if(!in_array(strtolower($extension9),$ext_formatos9)){
                 //echo ' Tipo de archivo no admitido';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+
+                        if($_FILES[$tipo_imagen9]["size"] > 33000003008000)
+                    return;
+
+                $targetDir9 = "archivosCargados/$Curp/";
+                @rmdir($targetDir9);
+                if (!file_exists($targetDir9)){
+                    @mkdir($targetDir9,077,true);
+                }else{
+                    @mkdir($targetDir9,077,true);
+                    $file_name9 = "";
+                    $Curp="";
+                    $targetDir9="archivosCargados/$Curp";
+                }
+                $token9 = md5(uniqid(rand(), true));
+                $file_name9 = $token9.'.'.$extension9;
+                $add9 = $targetDir9.$file_name9;
+                //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
+                $db_url_img9 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name9";
+                //fin subir archivos 9
             }else{
                 if($_FILES[$tipo_imagen9]["size"] > 33000003008000)
                     return;
@@ -324,9 +506,28 @@ class ClaseKerkly {
            
             if(!in_array(strtolower($extension10),$ext_formatos10)){
                 //echo ' Tipo de archivo no admitido';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+
+                        if($_FILES[$tipo_imagen10]["size"] > 33000003008000)
+                    return;
+                $targetDir10 = "archivosCargados/$Curp/";
+                @rmdir($targetDir10);
+                if (!file_exists($targetDir10)){
+                    @mkdir($targetDir10,077,true);
+                }else{
+                    @mkdir($targetDir10,077,true);
+                    $file_name10 = "";
+                    $Curp="";
+                    $targetDir10="archivosCargados/$Curp";
+                }
+                $token10 = md5(uniqid(rand(), true));
+                $file_name10 = $token10.'.'.$extension10;
+                $add10 = $targetDir10.$file_name10;
+                //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
+                $db_url_img10 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name10";
+                //fin subir archivos 10
             }else{
                 if($_FILES[$tipo_imagen10]["size"] > 33000003008000)
                     return;
@@ -352,9 +553,28 @@ class ClaseKerkly {
             
             if(!in_array(strtolower($extension11),$ext_formatos11)){
                 //echo ' Tipo de archivo no admitido';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+
+                        if($_FILES[$tipo_imagen11]["size"] > 33000003008000)
+                    return;
+                $targetDir11 = "archivosCargados/$Curp/";
+                @rmdir($targetDir11);
+                if (!file_exists($targetDir11)){
+                    @mkdir($targetDir11,077,true);
+                }else{
+                    @mkdir($targetDir11,077,true);
+                    $file_name11 = "";
+                    $Curp="";
+                    $targetDir11="archivosCargados/$Curp";
+                }
+                $token11 = md5(uniqid(rand(), true));
+                $file_name11 = $token11.'.'.$extension11;
+                $add11 = $targetDir11.$file_name11;
+                //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
+                $db_url_img11 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name11";
+                //fin subir archivos 11
             }else{
                  if($_FILES[$tipo_imagen11]["size"] > 33000003008000)
                     return;
@@ -379,9 +599,29 @@ class ClaseKerkly {
             
             if(!in_array(strtolower($extension12),$ext_formatos12)){
                 //echo ' Tipo de archivo no admitido';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+
+                        if($_FILES[$tipo_imagen12]["size"] > 33000003008000)
+                    return;
+
+                $targetDir12 = "archivosCargados/$Curp/";
+                @rmdir($targetDir12);
+                if (!file_exists($targetDir12)){
+                    @mkdir($targetDir12,077,true);
+                }else{
+                    @mkdir($targetDir12,077,true);
+                    $file_name12 = "";
+                    $Curp="";
+                    $targetDir12="archivosCargados/$Curp";
+                }
+                $token12 = md5(uniqid(rand(), true));
+                $file_name12 = $token12.'.'.$extension12;
+                $add12 = $targetDir12.$file_name12;
+                //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
+                $db_url_img12 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name12";
+                //fin subir archivos 12
             }else{
                 if($_FILES[$tipo_imagen12]["size"] > 33000003008000)
                     return;
@@ -409,9 +649,31 @@ class ClaseKerkly {
 
             if(!in_array(strtolower($extension13),$ext_formatos13)){
                 //echo 'Tipo de archivo no admitido ';
-                echo "<script>
+                /*echo "<script>
                         location.assign('algopaso.html');
-                        </script>";
+                        </script>";*/
+                        if($_FILES[$tipo_imagen13]["size"] > 33000003008000)
+                    return;
+
+                $targetDir13 = "archivosCargados/$Curp/";
+                @rmdir($targetDir13);
+                if (!file_exists($targetDir13)){
+                    @mkdir($targetDir13,077,true);
+                }else{
+                    @mkdir($targetDir13,077,true); 
+                    $file_name13 = "";
+                    $Curp="";
+                    $targetDir13="archivosCargados/$Curp";
+                }
+           
+                $token13 = md5(uniqid(rand(), true));
+                $file_name13 = $token13.'.'.$extension13;
+                $add13 = $targetDir13.$file_name13;
+                //$db_url_img = "http://localhost/tutorial/img/$anio/$mes/$dia/$file_name";
+
+                $db_url_img13 = "http://localhost/KERWEB/archivosCargados/$Curp/$file_name13";
+                //fin subir archivos 13
+                        
             }else{
                 if($_FILES[$tipo_imagen13]["size"] > 33000003008000)
                     return;
@@ -454,10 +716,14 @@ class ClaseKerkly {
                 }
 
                 $hash = password_hash($Contrasena1, PASSWORD_BCRYPT);
-                $insertar = "INSERT INTO kerkly (Nombre,Apellido_Paterno,Apellido_Materno,Curp,FechaDeNacimiento,Genero,Nacionalidad,EstadoCivil,correo_electronico,TelefonoCasa,Telefono,Municipio,direccionId,telNegocio,Referencia1,Referencia2,ReferenciaFam,fotoKEKRLY,ineKERKLY,curpKERKLY,comprobanteDomicilio,certificadoMedico,cartaAntePenales,regSatKERKLY,comprobanteVacuna,fotoDomicilioPart,fotoLocal, Contrasena)
-                VALUES ('$Nombre','$ApellidoP','$ApellidoM','$Curp','$FechaN','$genero','$Nacionalidad','$EstadoC','$email','$Telefonofijo','$TelefonoMovil','$Municipio','$idDireccion','$telNegocio','$db_url_img','$db_url_img2','$db_url_img3','$db_url_img4','$db_url_img5','$db_url_img6','$db_url_img7','$db_url_img8','$db_url_img9','$db_url_img10','$db_url_img11','$db_url_img12','$db_url_img13', '$hash')";
+                $insertar = "INSERT INTO kerkly (brigada,Nombre,Apellido_Paterno,Apellido_Materno,Curp,FechaDeNacimiento,Genero,Nacionalidad,EstadoCivil,correo_electronico,TelefonoCasa,Telefono,Municipio,direccionId,telNegocio,Referencia1,Referencia2,ReferenciaFam,fotoKEKRLY,ineKERKLY,curpKERKLY,comprobanteDomicilio,certificadoMedico,cartaAntePenales,regSatKERKLY,comprobanteVacuna,fotoDomicilioPart,fotoLocal, Contrasena)
+                VALUES ('$Brigada','$Nombre','$ApellidoP','$ApellidoM','$Curp','$FechaN','$genero','$Nacionalidad','$EstadoC','$email','$Telefonofijo','$TelefonoMovil','$Municipio','$idDireccion','$telNegocio','$db_url_img','$db_url_img2','$db_url_img3','$db_url_img4','$db_url_img5','$db_url_img6','$db_url_img7','$db_url_img8','$db_url_img9','$db_url_img10','$db_url_img11','$db_url_img12','$db_url_img13', '$hash')";
 
                 if(mysqli_query($con,$insertar)){
+                    // registro de quien registra INICIO
+                    //$consultaLoginKerkly = "SELECT registrokerklylogin.id_login from registrokerklylogin where registrokerklylogin.usuario='admin'";
+                    // registro de quien no registra FIN
+
                     // esto es nuevo INICIO
                     $sqlConsultaNoOficios = "SELECT * FROM oficio_kerkly";
                     $resultadoNoOficios = mysqli_query($con, $sqlConsultaNoOficios);

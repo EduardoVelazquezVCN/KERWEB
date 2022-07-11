@@ -3,6 +3,8 @@ include_once 'Crud.php';
 
 /*include_once 'CrudInfoDom.php';*/
 
+$Kerklys['selectBrigada'] = $_POST['selectBrigada'];
+
 if (isset($_POST['Nombre'])) {
     $Kerklys['Nombre'] = $_POST['Nombre'];
 }
@@ -23,6 +25,7 @@ if (isset($_POST['FechaN'])) {
 }
 
     $Kerklys['selectGenero'] = $_POST['selectGenero'];
+
 
 if (isset($_POST['Nacionalidad'])) {
     $Kerklys['Nacionalidad'] = $_POST['Nacionalidad'];
@@ -74,6 +77,9 @@ if (isset($_POST['NoInt'])) {
 if (isset($_POST['telNegocio'])) {
     $Kerklys['telNegocio'] = $_POST['telNegocio'];
 }
+/*if (isset($_POST['telNegocio'])) {
+    $Kerklys['telNegocio'] = $_POST['telNegocio'];
+}*/
 
 if(isset($_POST['Contrasena'])){
     //$contra= $_POST['Contrasena'];

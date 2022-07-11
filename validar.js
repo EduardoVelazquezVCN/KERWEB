@@ -1,6 +1,6 @@
 
 
-function validar(){
+/*function validar(){
     if (nombre.value =="") {
         Swal.fire({
             title: 'Llena todos los campos para continuar',
@@ -134,6 +134,6 @@ function validar(){
           })
           return false;
     }
-}
+}/*
 
 
