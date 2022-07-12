@@ -18,7 +18,7 @@
         if(empty($_POST['usuario']) || empty($_POST['password']) ){
            echo "<script languaje='JavaScript'>
            alert('El usuario o el password estan vacios');
-           location.assign('index.php');
+           location.assign('index.html');
            </script>";
         }else{
             include ('conexionDB.php');
